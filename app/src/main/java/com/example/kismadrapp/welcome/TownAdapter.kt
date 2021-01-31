@@ -46,6 +46,6 @@ class TownAdapter(
     }
 }
 
-class TownClickListener(val clickListener: (townId: Long) -> Unit) {
-    fun onClick(town: Town) = clickListener(town.townId)
+class TownClickListener(val clickListener: (townId: String) -> Unit) {
+    fun onClick(town: Town) = clickListener(town.name)
 }

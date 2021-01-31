@@ -9,7 +9,8 @@
     </data>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background_grey">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,9 +23,11 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerTown"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:padding="5dp"
+                tools:listitem="@layout/item_town_icon"
+                tools:orientation="horizontal"
                 />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -36,7 +39,20 @@
                 tools:listitem="@layout/item_category"
                 android:paddingHorizontal="5dp"
                 />
-        </LinearLayout>
+            <include
+                layout="@layout/fragment_news_banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="5dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Túráim:"
+                android:textSize="30sp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"/>
 
+        </LinearLayout>
     </ScrollView>
 </layout>

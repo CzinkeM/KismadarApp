@@ -32,15 +32,16 @@ class WelcomePageFragment : Fragment() {
         var viewModel = ViewModelProvider(this).get(WelcomePageViewModel::class.java)
         val categoryAdapter = CategoryAdapter()
         binding.viewModel = viewModel
-        viewModel.generateList(resources.getDrawable(R.drawable.ic_baseline_restaurant_24))
+        viewModel.generateCategoryList(resources)
+        viewModel.getCategoryList()
         binding.recyclerCategory.layoutManager = GridLayoutManager(context,2,RecyclerView.VERTICAL,false)
         binding.recyclerTown.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerTown.adapter = TownAdapter(TownClickListener {
             townId ->Toast.makeText(context,"Clicked $townId", Toast.LENGTH_SHORT).show()
         },
-            viewModel.townList(resources.getDrawable(R.drawable.ic_baseline_home_24)))
+            viewModel.townList(resources.getDrawable(R.mipmap.noszvaj_panorama_cut)))
         binding.recyclerCategory.adapter = categoryAdapter
-        viewModel.getList().observe(viewLifecycleOwner, Observer {
+        viewModel.getCategoryList().observe(viewLifecycleOwner, Observer {
             it?.let {
                 categoryAdapter.submitList(it)
             }

@@ -2,4 +2,12 @@
     <string name="app_name">Kismadár App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_title">Üdvözöljük Noszvajon</string>
+    <!--Categories-->
+    <string name="category_food_drink">Étel/Ital</string>
+    <string name="category_services">Szolgáltatások</string>
+    <string name="category_shops">Boltok</string>
+    <string name="category_sights">Látványosságok</string>
+    <string name="category_nature">Természet</string>
+    <string name="category_surroundings">Környék</string>
 </resources>
