@@ -1,51 +1,51 @@
 package com.example.kismadrapp.welcome
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ObservableList
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.R
+import com.example.kismadrapp.databinding.FragmentNewsBannerBinding
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
-import com.example.kismadrapp.model.Category
+import com.example.kismadrapp.model.Banner
+import kotlin.math.log
 
 class WelcomePageFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         val binding: FragmentPageWelcomeBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_page_welcome,container,false)
-        var viewModel = ViewModelProvider(this).get(WelcomePageViewModel::class.java)
-        val categoryAdapter = CategoryAdapter()
+        val viewModel = ViewModelProvider(this).get(WelcomePageViewModel::class.java)
+        val townList = viewModel.getTownList(resources)
+        val categoryList = viewModel.getCategoryList(resources)
+        val randomBannerImage = viewModel.getRandomTownImage(townList)
+        val dominantColor = viewModel.getDominantColorOfImage(randomBannerImage)
+        binding.newsBanner.banner = Banner(resources.getString(R.string.banner_discover),randomBannerImage,dominantColor)
         binding.viewModel = viewModel
-        viewModel.generateCategoryList(resources)
-        viewModel.getCategoryList()
         binding.recyclerCategory.layoutManager = GridLayoutManager(context,2,RecyclerView.VERTICAL,false)
         binding.recyclerTown.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+
         binding.recyclerTown.adapter = TownAdapter(TownClickListener {
             townId ->Toast.makeText(context,"Clicked $townId", Toast.LENGTH_SHORT).show()
-        },
-            viewModel.townList(resources.getDrawable(R.mipmap.noszvaj_panorama_cut)))
-        binding.recyclerCategory.adapter = categoryAdapter
-        viewModel.getCategoryList().observe(viewLifecycleOwner, Observer {
-            it?.let {
-                categoryAdapter.submitList(it)
-            }
-        })
+        },townList)
+        binding.recyclerCategory.adapter = CategoryAdapter(CategoryClickListener { categoryId ->
+            Toast.makeText(context, "Clicked $categoryId", Toast.LENGTH_SHORT).show()
+        }, categoryList)
+
+
         return binding.root
     }
 

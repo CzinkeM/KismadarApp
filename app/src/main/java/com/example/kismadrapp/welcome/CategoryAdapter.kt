@@ -7,23 +7,33 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
 import com.example.kismadrapp.databinding.ItemCategoryBinding
+import com.example.kismadrapp.databinding.ItemTownIconBinding
 import com.example.kismadrapp.model.Category
+import com.example.kismadrapp.model.Town
 
-class CategoryAdapter : ListAdapter<Category, CategoryAdapter.ViewHolder>(CategoryDiffCallBack()) {
+class CategoryAdapter(
+        private val clickListener: CategoryClickListener,
+        private val values: List<Category>
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
-        holder.bind(item)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is ViewHolder -> {
+                val item = values[position]
+                holder.bind(item, clickListener)
+            }
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Category) {
+        fun bind(item: Category, clickListener: CategoryClickListener) {
             binding.category = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -36,15 +46,11 @@ class CategoryAdapter : ListAdapter<Category, CategoryAdapter.ViewHolder>(Catego
         }
     }
 
+    override fun getItemCount(): Int {
+        return values.size
+    }
 }
 
-class CategoryDiffCallBack : DiffUtil.ItemCallback<Category>() {
-    override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
-        return oldItem == newItem
-    }
-
+class CategoryClickListener(val clickListener: (categoryId: String) -> Unit) {
+    fun onClick(category: Category) = clickListener(category.title)
 }

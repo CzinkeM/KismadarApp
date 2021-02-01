@@ -12,31 +12,50 @@
         android:layout_width="match_parent"
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="5dp"
-        android:backgroundTint="@color/design_default_color_primary"
         >
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:src="@{banner.background}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/noszvaj_panorama_cut" />
+
+            <ImageView
+                android:id="@+id/bannerGradient"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@{banner.background}"/>
+                android:background="@drawable/gradient_banner"
+                android:backgroundTint="@{banner.color}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{banner.title}"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                android:text="Fedezze fel..."
-                android:textColor="#FFF"
-                android:layout_margin="10dp"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

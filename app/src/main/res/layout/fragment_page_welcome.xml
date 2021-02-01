@@ -40,12 +40,14 @@
                 android:paddingHorizontal="5dp"
                 />
             <include
+                android:id="@+id/newsBanner"
                 layout="@layout/fragment_news_banner"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="5dp"/>
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/titleTrips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Túráim:"

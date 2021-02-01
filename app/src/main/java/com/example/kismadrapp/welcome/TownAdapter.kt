@@ -7,7 +7,7 @@ import com.example.kismadrapp.databinding.ItemTownIconBinding
 import com.example.kismadrapp.model.Town
 
 class TownAdapter(
-        val clickListener: TownClickListener,
+        private val clickListener: TownClickListener,
         private val values: List<Town>
         ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -24,7 +24,7 @@ class TownAdapter(
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(val binding: ItemTownIconBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: ItemTownIconBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Town, clickListener: TownClickListener) {
             binding.town = item
