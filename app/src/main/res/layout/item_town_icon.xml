@@ -5,7 +5,7 @@
     <data>
         <variable
             name="town"
-            type="com.example.kismadrapp.model.Town" />
+            type="com.example.kismadrapp.database.Town" />
         <variable
             name="clickListener"
             type="com.example.kismadrapp.welcome.TownClickListener" />

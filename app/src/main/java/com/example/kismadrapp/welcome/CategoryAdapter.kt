@@ -2,14 +2,9 @@ package com.example.kismadrapp.welcome
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
 import com.example.kismadrapp.databinding.ItemCategoryBinding
-import com.example.kismadrapp.databinding.ItemTownIconBinding
-import com.example.kismadrapp.model.Category
-import com.example.kismadrapp.model.Town
+import com.example.kismadrapp.database.Category
 
 class CategoryAdapter(
         private val clickListener: CategoryClickListener,
@@ -52,5 +47,5 @@ class CategoryAdapter(
 }
 
 class CategoryClickListener(val clickListener: (categoryId: String) -> Unit) {
-    fun onClick(category: Category) = clickListener(category.title)
+    fun onClick(category: Category) = clickListener(category.name)
 }
