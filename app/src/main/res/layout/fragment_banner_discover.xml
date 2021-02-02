@@ -8,6 +8,7 @@
             type="com.example.kismadrapp.model.Banner" />
     </data>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bannerDiscoverCardView"
         android:layout_height="150dp"
         android:layout_width="match_parent"
         android:layout_marginVertical="5dp"
@@ -19,7 +20,6 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
@@ -31,18 +31,16 @@
                 tools:src="@mipmap/noszvaj_panorama_cut" />
 
             <ImageView
-                android:id="@+id/bannerGradient"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_banner"
-                android:backgroundTint="@{banner.color}"
+                android:backgroundTint="@{banner.color.colorMuted}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

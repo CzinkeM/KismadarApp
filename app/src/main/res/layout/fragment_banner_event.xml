@@ -8,34 +8,48 @@
             type="com.example.kismadrapp.model.Banner" />
     </data>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bannerEventCardView"
         android:layout_height="150dp"
         android:layout_width="match_parent"
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="5dp"
-        android:backgroundTint="@color/design_default_color_primary"
         >
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
                 android:src="@{banner.background}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/noszvaj_panorama_cut" />
+
+            <ImageView
+                android:id="@+id/bannerGradient"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_banner"
+                android:backgroundTint="@{banner.color.colorMuted}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView"
+                android:id="@+id/eventTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textColor="#FFF"
-                android:textSize="40sp"
+                android:text="@{banner.title}"
+                android:textColor="@color/white"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,23 +57,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                tools:text="Kemencésnap" />
+                tools:text="Some Event Name Here" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/eventDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:textColor="@{banner.color.colorLightMuted}"
+                android:textSize="25sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eventTitle"
                 app:layout_constraintVertical_bias="0.0"
-                tools:text="2021.08.31"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="5dp"
-                android:textStyle="italic"
-                android:textColor="#fff"
-                android:textSize="25sp"/>
+                tools:text="2020/02/07" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

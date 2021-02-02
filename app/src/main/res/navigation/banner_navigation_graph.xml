@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/banner_navigation_graph"
+    app:startDestination="@id/bannerFragment">
+
+    <fragment
+        android:id="@+id/bannerFragment"
+        android:name="com.example.kismadrapp.banner.BannerDiscoverFragment"
+        android:label="BannerFragment"
+        tools:layout="@layout/fragment_banner_discover">
+        <action
+            android:id="@+id/action_bannerFragment_to_bannerEventFragment"
+            app:destination="@id/bannerEventFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/bannerEventFragment"
+        android:name="com.example.kismadrapp.banner.BannerEventFragment"
+        android:label="fragment_banner_event"
+        tools:layout="@layout/fragment_banner_event" >
+        <action
+            android:id="@+id/action_bannerEventFragment_to_bannerFragment"
+            app:destination="@id/bannerFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>
