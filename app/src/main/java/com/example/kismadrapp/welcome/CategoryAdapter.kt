@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.ItemCategoryBinding
-import com.example.kismadrapp.database.Category
+import com.example.kismadrapp.model.Category
 
 class CategoryAdapter(
         private val clickListener: CategoryClickListener,

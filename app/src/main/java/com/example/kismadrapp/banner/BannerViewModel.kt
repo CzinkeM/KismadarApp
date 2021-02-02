@@ -8,19 +8,23 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
 import com.example.kismadrapp.model.ImageColors
-import com.example.kismadrapp.model.Lists
+import com.example.kismadrapp.model.EmbeddedValues
+import com.example.kismadrapp.model.Event
 import kotlin.random.Random
 
-class BannerViewModel:ViewModel() {
-    private val data = Lists()
-    fun getImage(res: Resources): Drawable{
-       return getRandomImage(data.generateTownList(res).map { town -> town.img }.toList())
+class BannerViewModel(resources: Resources):ViewModel() {
+    private val data = EmbeddedValues(resources)
+
+
+    fun getRandomTownImage(): Drawable{
+        val random = Random.nextInt(0,data.listOfTowns.size)
+        val town = data.listOfTowns[random]
+        return getRandomImage(town.img)
     }
 
-    private fun getRandomImage(townList: List<Drawable?>): Drawable {
-        val randomNumber = Random.nextInt(0,townList.size-1)
-        return townList[randomNumber]!!
-
+    private fun getRandomImage(imageList: List<Drawable>): Drawable {
+        val random = Random.nextInt(0,imageList.size)
+        return imageList[random]
     }
     fun getColorsOfImage(drawable: Drawable?): ImageColors {
         val drawableBitmap = drawable!!.toBitmap()
@@ -35,4 +39,7 @@ class BannerViewModel:ViewModel() {
         return  ImageColors(colorDarkMuted,colorDarkVibrant,colorDominant,colorLightMuted,colorLightVibrant,colorMuted,colorVibrant)
     }
     private fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
+    fun getRecentEvent(): Event{
+        return Event("Valentin nap","2020.02.07")
+    }
 }

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="town"
-            type="com.example.kismadrapp.database.Town" />
+            type="com.example.kismadrapp.model.Town" />
         <variable
             name="clickListener"
             type="com.example.kismadrapp.welcome.TownClickListener" />
@@ -29,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@{town.img}"
+                    android:src="@{town.img[0]}"
                     tools:src="@mipmap/noszvaj_panorama_cut"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

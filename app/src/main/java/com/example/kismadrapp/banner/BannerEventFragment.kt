@@ -2,6 +2,7 @@ package com.example.kismadrapp.banner
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -21,23 +22,13 @@ class BannerEventFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        timer().start()
         val binding: FragmentBannerEventBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_banner_event, container, false)
-        val viewModel = ViewModelProvider(this).get(BannerViewModel::class.java)
-        binding.banner = Banner(resources.getString(R.string.banner_discover),viewModel.getImage(resources),viewModel.getColorsOfImage(viewModel.getImage(resources)))
-        binding.bannerEventCardView.setOnClickListener{
-            findNavController().navigate(R.id.action_bannerEventFragment_to_bannerFragment)
-        }
+        val viewModelFactory = BannerViewModelFactory(resources)
+        val viewModel = ViewModelProvider(this,viewModelFactory).get(BannerViewModel::class.java)
+        val generatedImage = viewModel.getRandomTownImage()
+        binding.banner = Banner(resources.getString(R.string.banner_discover),generatedImage,viewModel.getColorsOfImage(generatedImage),viewModel.getRecentEvent())
+
         return binding.root
-    }
-    private fun timer(): CountDownTimer{
-        return object : CountDownTimer(10000,1000){
-            override fun onFinish() {
-                findNavController().navigate(R.id.action_bannerEventFragment_to_bannerFragment)
-            }
-            override fun onTick(millisUntilFinished: Long) {
-            }
-        }
     }
 
 }

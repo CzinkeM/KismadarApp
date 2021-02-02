@@ -1,4 +1,4 @@
-package com.example.kismadrapp.database
+package com.example.kismadrapp.model
 
 import android.content.res.Resources
 import android.graphics.drawable.Drawable

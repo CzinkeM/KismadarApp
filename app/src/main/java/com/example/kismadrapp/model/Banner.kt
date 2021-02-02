@@ -8,5 +8,6 @@ import java.util.*
 class Banner(
      val title: String,
      val background: Drawable,
-     val color: ImageColors
+     val color: ImageColors,
+     val event: Event?
 )

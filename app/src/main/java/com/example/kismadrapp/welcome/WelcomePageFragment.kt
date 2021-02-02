@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
-import com.example.kismadrapp.model.Banner
 
 class WelcomePageFragment : Fragment() {
 

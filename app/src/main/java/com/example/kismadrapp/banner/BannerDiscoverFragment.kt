@@ -2,6 +2,8 @@ package com.example.kismadrapp.banner
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.SystemClock
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,26 +16,16 @@ import com.example.kismadrapp.databinding.FragmentBannerDiscoverBinding
 import com.example.kismadrapp.model.Banner
 
 class BannerDiscoverFragment : Fragment() {
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
-        timer().start()
         val binding: FragmentBannerDiscoverBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_banner_discover, container, false)
-        val viewModel = ViewModelProvider(this).get(BannerViewModel::class.java)
-        binding.banner = Banner(resources.getString(R.string.banner_discover),viewModel.getImage(resources),viewModel.getColorsOfImage(viewModel.getImage(resources)))
-        binding.bannerDiscoverCardView.setOnClickListener{
-            findNavController().navigate(R.id.action_bannerFragment_to_bannerEventFragment)
-        }
+        val viewModelFactory = BannerViewModelFactory(resources)
+        val viewModel = ViewModelProvider(this,viewModelFactory).get(BannerViewModel::class.java)
+        val generatedImage = viewModel.getRandomTownImage()
+        binding.banner = Banner(resources.getString(R.string.banner_discover),generatedImage,viewModel.getColorsOfImage(generatedImage),null)
+
         return binding.root
     }
-    private fun timer(): CountDownTimer {
-        return object : CountDownTimer(10000,1000){
-            override fun onFinish() {
-                findNavController().navigate(R.id.action_bannerFragment_to_bannerEventFragment)
-            }
-            override fun onTick(millisUntilFinished: Long) {
-            }
-        }
-    }
+
 }

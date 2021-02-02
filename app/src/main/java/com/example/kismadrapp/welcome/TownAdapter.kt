@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.ItemTownIconBinding
-import com.example.kismadrapp.database.Town
+import com.example.kismadrapp.model.Town
 
 class TownAdapter(
         private val clickListener: TownClickListener,

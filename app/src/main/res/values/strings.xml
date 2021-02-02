@@ -10,14 +10,23 @@
     <string name="category_sights">Látványosságok</string>
     <string name="category_nature">Természet</string>
     <string name="category_surroundings">Környék</string>
-    <!--Towns-->
-    <string name="town_bogacs">Bogács</string>
-    <string name="town_szomolya">Szomolya</string>
-    <string name="town_eger">Eger</string>
-    <string name="town_mezokovesd">Mezőkövesd</string>
-    <string name="town_felsotarkany">Felsőtárkány</string>
-    <string name="town_bukkzserc">Bükkzsérc</string>
-    <string name="town_cserepfalu">Cserépfalu</string>
+    <!--Town Names-->
+    <string name="town_name_bogacs">Bogács</string>
+    <string name="town_name_szomolya">Szomolya</string>
+    <string name="town_name_eger">Eger</string>
+    <string name="town_name_mezokovesd">Mezőkövesd</string>
+    <string name="town_name_felsotarkany">Felsőtárkány</string>
+    <string name="town_name_bukkzserc">Bükkzsérc</string>
+    <string name="town_name_cserepfalu">Cserépfalu</string>
+    <!--Town-Description-->
+    <string name="test_town_des">Lorem ipsum dominumpas asdmo</string>
+    <string name="town_des_bogacs">Bogács</string>
+    <string name="town_des_szomolya">Szomolya</string>
+    <string name="town_des_eger">Eger</string>
+    <string name="town_des_mezokovesd">Mezőkövesd</string>
+    <string name="town_des_felsotarkany">Felsőtárkány</string>
+    <string name="town_des_bukkzserc">Bükkzsérc</string>
+    <string name="town_des_cserepfalu">Cserépfalu</string>
     <!--Banner-->
     <string name="banner_discover">Fedezze fel...</string>
 </resources>
