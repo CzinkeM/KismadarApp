@@ -1,7 +1,10 @@
 package com.example.kismadrapp.welcome
 
 import android.content.res.Resources
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import com.example.kismadrapp.R
 import com.example.kismadrapp.model.Category
 import com.example.kismadrapp.model.Town
 import com.example.kismadrapp.model.EmbeddedValues
@@ -17,5 +20,4 @@ class WelcomePageViewModel(resources: Resources):ViewModel(){
         townList = data.listOfTowns
         categoryList = data.generateCategoryList(resources)
     }
-
 }

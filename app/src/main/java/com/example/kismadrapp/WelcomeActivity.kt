@@ -12,10 +12,4 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
     }
-
-    override fun onBackPressed() {
-            this.finish()
-            moveTaskToBack(true)
-    }
-
 }

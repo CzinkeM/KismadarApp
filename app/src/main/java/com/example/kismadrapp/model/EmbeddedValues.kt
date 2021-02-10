@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import androidx.core.content.res.ResourcesCompat
 import com.example.kismadrapp.R
+import com.example.kismadrapp.list.Sight
 import kotlin.random.Random
 
 data class EmbeddedValues(val res: Resources) {
@@ -40,7 +41,7 @@ data class EmbeddedValues(val res: Resources) {
     }
     private fun listOfSight(): List<Sight>
     {// TODO: 2021. 02. 02. when elágazás
-        val sight = Sight()
+        val sight = Sight("Test Sight","test sight description", true,ResourcesCompat.getDrawable(res,R.drawable.ic_iconmonstr_tree,null)!!,null)
         return listOf(sight)
     }
     private fun getTownDrawables(townName: String): List<Drawable>

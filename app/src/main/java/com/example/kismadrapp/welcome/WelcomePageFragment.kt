@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,8 +32,11 @@ class WelcomePageFragment : Fragment() {
             townId ->Toast.makeText(context,"Clicked $townId", Toast.LENGTH_SHORT).show()
         },viewModel.getTownList())
         binding.recyclerCategory.adapter = CategoryAdapter(CategoryClickListener { categoryId ->
-            Toast.makeText(context, "Clicked $categoryId", Toast.LENGTH_SHORT).show()
+            chooseCategory(categoryId)
         }, viewModel.getCategoryList())
         return binding.root
+    }
+    private fun chooseCategory(id: String){
+        findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToListFragment(id))
     }
 }

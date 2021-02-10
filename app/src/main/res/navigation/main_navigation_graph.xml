@@ -10,5 +10,18 @@
         android:name="com.example.kismadrapp.welcome.WelcomePageFragment"
         android:label="WelcomePageFragment"
         tools:layout="@layout/fragment_page_welcome"
-        />
+        >
+        <action
+            android:id="@+id/action_welcomePageFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.kismadrapp.list.ListFragment"
+        android:label="ListFragment" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
 </navigation>
