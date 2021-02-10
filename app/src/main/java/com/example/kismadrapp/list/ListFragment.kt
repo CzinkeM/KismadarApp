@@ -26,7 +26,7 @@ class ListFragment : Fragment() {
         val viewModelFactory = ListPageFragmentViewModelFactory(context!!)
         val viewModel = ViewModelProvider(this,viewModelFactory).get(ListViewModel::class.java)
         val category = args.category
-        binding.recyclerRestaurant.adapter = viewModel.chooseAdapter(resources,category)
+        binding.recyclerRestaurant.adapter = viewModel.chooseAdapter(category)
         binding.recyclerRestaurant.layoutManager = viewModel.chooseLayoutManager(category)
         return binding.root
     }
