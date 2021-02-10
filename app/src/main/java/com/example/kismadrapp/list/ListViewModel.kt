@@ -5,6 +5,8 @@ import android.content.res.Resources
 import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.R
 import com.example.kismadrapp.model.EmbeddedValues
@@ -12,6 +14,8 @@ import com.example.kismadrapp.welcome.TownAdapter
 import com.example.kismadrapp.welcome.TownClickListener
 
 class ListViewModel(context: Context):ViewModel() {
+    private val viewModelContext = context
+
     private val tag = "myTag"
     private val mainImage = ResourcesCompat.getDrawable(context.resources,R.mipmap.noszvaj_panorama_cut,null)!!
     private val data = EmbeddedValues(context.resources)
@@ -28,32 +32,32 @@ class ListViewModel(context: Context):ViewModel() {
     private val shopList = listOf(testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop)
     private val sightList = listOf(testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight)
 
-    fun chooseAdapter(res: Resources, categoryName: String): RecyclerView.Adapter<RecyclerView.ViewHolder>
+    fun chooseAdapter(categoryName: String): RecyclerView.Adapter<RecyclerView.ViewHolder>
     {
         val adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
         when(categoryName)
         {
-            res.getString(R.string.category_food_drink) -> adapter = RestaurantAdapter(
+            viewModelContext.getString(R.string.category_food_drink) -> adapter = RestaurantAdapter(
                 RestaurantClickListener {
                     restaurantId -> Log.i(tag,restaurantId)
             },restaurantList)
-            res.getString(R.string.category_nature) -> adapter = NatureAdapter(
+            viewModelContext.getString(R.string.category_nature) -> adapter = NatureAdapter(
                 NatureClickListener {
                 natureId ->   Log.i(tag,natureId)
             },natureList)
-            res.getString(R.string.category_services) -> adapter = ServiceAdapter(
+            viewModelContext.getString(R.string.category_services) -> adapter = ServiceAdapter(
                 ServiceClickListener {
                 serviceId -> Log.i(tag,serviceId)
             },serviceList)
-            res.getString(R.string.category_shops) -> adapter = ShopAdapter(
+            viewModelContext.getString(R.string.category_shops) -> adapter = ShopAdapter(
                 ShopClickListener {
                     shopId -> Log.i(tag,shopId)
                 },shopList)
-            res.getString(R.string.category_sights) -> adapter = SightAdapter(
+            viewModelContext.getString(R.string.category_sights) -> adapter = SightAdapter(
                 SightClickListener {
                     sightId -> Log.i(tag,sightId)
                 },sightList)
-            res.getString(R.string.category_surroundings) -> adapter = TownAdapterVertical(
+            viewModelContext.getString(R.string.category_surroundings) -> adapter = TownAdapterVertical(
                 TownClickListener {
                     townId -> Log.i(tag,townId)
                 },data.listOfTowns)
@@ -62,5 +66,17 @@ class ListViewModel(context: Context):ViewModel() {
             },restaurantList)
         }
         return adapter
+    }
+    fun chooseLayoutManager(categoryName: String): RecyclerView.LayoutManager
+    {
+        val layoutManager: RecyclerView.LayoutManager
+        val linearLayout = LinearLayoutManager(viewModelContext, LinearLayoutManager.HORIZONTAL,false)
+        val gridLayout = GridLayoutManager(viewModelContext,2,RecyclerView.VERTICAL,false)
+        layoutManager = when(categoryName) {
+            viewModelContext.resources.getString(R.string.category_nature) -> gridLayout
+            viewModelContext.resources.getString(R.string.category_sights) -> gridLayout
+            else -> linearLayout
+        }
+        return layoutManager
     }
 }
