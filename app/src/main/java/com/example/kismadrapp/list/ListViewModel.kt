@@ -32,7 +32,7 @@ class ListViewModel(context: Context):ViewModel() {
     private val shopList = listOf(testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop,testShop)
     private val sightList = listOf(testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight,testSight)
 
-    fun chooseAdapter(categoryName: String): RecyclerView.Adapter<RecyclerView.ViewHolder>
+    fun setAdapter(categoryName: String): RecyclerView.Adapter<RecyclerView.ViewHolder>
     {
         val adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
         when(categoryName)
@@ -67,10 +67,10 @@ class ListViewModel(context: Context):ViewModel() {
         }
         return adapter
     }
-    fun chooseLayoutManager(categoryName: String): RecyclerView.LayoutManager
+    fun setLayoutManager(categoryName: String): RecyclerView.LayoutManager
     {
         val layoutManager: RecyclerView.LayoutManager
-        val linearLayout = LinearLayoutManager(viewModelContext, LinearLayoutManager.HORIZONTAL,false)
+        val linearLayout = LinearLayoutManager(viewModelContext, LinearLayoutManager.VERTICAL,false)
         val gridLayout = GridLayoutManager(viewModelContext,2,RecyclerView.VERTICAL,false)
         layoutManager = when(categoryName) {
             viewModelContext.resources.getString(R.string.category_nature) -> gridLayout
@@ -78,5 +78,8 @@ class ListViewModel(context: Context):ViewModel() {
             else -> linearLayout
         }
         return layoutManager
+    }
+    fun setBackground(){
+
     }
 }

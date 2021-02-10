@@ -47,13 +47,13 @@ data class EmbeddedValues(val res: Resources) {
     private fun getTownDrawables(townName: String): List<Drawable>
     {
         return when(townName) {
-            res.getString(R.string.town_name_bogacs) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
-            res.getString(R.string.town_name_bukkzserc) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
-            res.getString(R.string.town_name_cserepfalu) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
-            res.getString(R.string.town_name_eger) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
-            res.getString(R.string.town_name_felsotarkany) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
-            res.getString(R.string.town_name_mezokovesd) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
-            res.getString(R.string.town_name_szomolya) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
+            res.getString(R.string.town_name_bogacs) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.bogacs, null)!!)
+            res.getString(R.string.town_name_bukkzserc) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.bukkzserc, null)!!)
+            res.getString(R.string.town_name_cserepfalu) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.cserepfalu, null)!!)
+            res.getString(R.string.town_name_eger) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.eger, null)!!)
+            res.getString(R.string.town_name_felsotarkany) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.felsotarkany, null)!!)
+            res.getString(R.string.town_name_mezokovesd) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.mezokovesd, null)!!)
+            res.getString(R.string.town_name_szomolya) -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.szomolya, null)!!)
             else -> listOf(ResourcesCompat.getDrawable(res,R.mipmap.noszvaj_panorama_cut, null)!!)
         }
     }
