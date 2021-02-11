@@ -31,19 +31,7 @@ class BannerEventFragment : Fragment() {
         val viewModelFactory = BannerViewModelFactory(resources)
         val viewModel = ViewModelProvider(this,viewModelFactory).get(BannerViewModel::class.java)
         val generatedImage = viewModel.getRandomEvent()
-        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
         binding.banner = Banner(resources.getString(R.string.banner_discover),generatedImage,viewModel.getColorsOfImage(generatedImage),viewModel.getRecentEvent())
-        binding.root.setOnClickListener {
-            viewPager?.currentItem = 0
-        }
         return binding.root
     }
-
-    override fun onResume() {
-        super.onResume()
-        Timer("Paging", false).schedule(5000) {
-            activity?.findViewById<ViewPager2>(R.id.viewPager)?.currentItem = 0
-        }
-    }
-
 }

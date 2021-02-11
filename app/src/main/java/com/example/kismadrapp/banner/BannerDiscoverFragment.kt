@@ -1,16 +1,12 @@
 package com.example.kismadrapp.banner
 
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.SystemClock
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentBannerDiscoverBinding
@@ -28,11 +24,5 @@ class BannerDiscoverFragment : Fragment() {
         val generatedImage = viewModel.getRandomTownImage()
         binding.banner = Banner(resources.getString(R.string.banner_discover),generatedImage,viewModel.getColorsOfImage(generatedImage),null)
         return binding.root
-    }
-    override fun onResume() {
-        super.onResume()
-        Timer("Paging", false).schedule(5000) {
-            activity?.findViewById<ViewPager2>(R.id.viewPager)?.currentItem = 1
-        }
     }
 }

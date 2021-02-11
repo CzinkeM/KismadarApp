@@ -34,6 +34,7 @@ class WelcomePageFragment : Fragment() {
         binding.recyclerCategory.adapter = CategoryAdapter(CategoryClickListener { categoryId ->
             chooseCategory(categoryId)
         }, viewModel.getCategoryList())
+        binding.viewFlipper.isAutoStart = true
         return binding.root
     }
     private fun chooseCategory(id: String){

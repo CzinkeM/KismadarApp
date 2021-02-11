@@ -38,17 +38,26 @@
                 tools:itemCount="8"
                 tools:listitem="@layout/item_category"
                 android:paddingHorizontal="5dp"
-                >
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <fragment
-                android:id="@+id/bannerNavHost"
-                android:name="androidx.navigation.fragment.NavHostFragment"
+                />
+            <ViewFlipper
+                android:id="@+id/viewFlipper"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/banner_navigation_graph" />
+                android:inAnimation="@android:anim/slide_in_left"
+                android:outAnimation="@android:anim/slide_out_right">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fragmentEvent"
+                    android:name="com.example.kismadrapp.banner.BannerEventFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fragmentDiscover"
+                    android:name="com.example.kismadrapp.banner.BannerDiscoverFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+            </ViewFlipper>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/titleTrips"
