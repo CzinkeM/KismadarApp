@@ -5,13 +5,18 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentBannerEventBinding
 import com.example.kismadrapp.model.Banner
+import java.util.*
+import kotlin.concurrent.schedule
 import kotlin.math.abs
 
 
@@ -25,10 +30,20 @@ class BannerEventFragment : Fragment() {
         val binding: FragmentBannerEventBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_banner_event, container, false)
         val viewModelFactory = BannerViewModelFactory(resources)
         val viewModel = ViewModelProvider(this,viewModelFactory).get(BannerViewModel::class.java)
-        val generatedImage = viewModel.getRandomTownImage()
+        val generatedImage = viewModel.getRandomEvent()
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
         binding.banner = Banner(resources.getString(R.string.banner_discover),generatedImage,viewModel.getColorsOfImage(generatedImage),viewModel.getRecentEvent())
-
+        binding.root.setOnClickListener {
+            viewPager?.currentItem = 0
+        }
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timer("Paging", false).schedule(5000) {
+            activity?.findViewById<ViewPager2>(R.id.viewPager)?.currentItem = 0
+        }
     }
 
 }

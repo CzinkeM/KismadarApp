@@ -23,13 +23,13 @@
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@{banner.background}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/noszvaj_panorama" />
+                tools:src="@drawable/art_vector_festivities" />
 
             <ImageView
                 android:id="@+id/bannerGradient"

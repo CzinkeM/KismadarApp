@@ -57,4 +57,10 @@ data class EmbeddedValues(val res: Resources) {
             else -> listOf(ResourcesCompat.getDrawable(res,R.drawable.noszvaj_panorama, null)!!)
         }
     }
+    private fun listOfEvents():List<Drawable>{
+        val eventList: List<Drawable>
+        val img = ResourcesCompat.getDrawable(res,R.drawable.art_vector_festivities,null)!!
+        return listOf(img,img,img)
+    }
+    val eventList = listOfEvents()
 }

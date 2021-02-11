@@ -8,6 +8,7 @@ import kotlin.system.exitProcess
 enum class NavigationStatus{MAINPAGE,LISTPAGE,DETAILSPAGE}
 class WelcomeActivity : AppCompatActivity() {
     lateinit var navigationStatus: NavigationStatus
+    val autoPagingDelay = 5L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
