@@ -17,6 +17,7 @@
         android:layout_marginHorizontal="5dp"
         android:onClick="@{()->restaurantClickListener.onClick(restaurant)}"
         app:cardBackgroundColor="@color/transparent40"
+        app:cardElevation="0dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -29,8 +30,8 @@
                 android:layout_height="110dp"
                 android:layout_margin="5dp"
                 android:src="@{restaurant.mainImage}"
-                android:scaleType="center"
-                tools:src="@drawable/ic_launcher_background"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/art_vector_food"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

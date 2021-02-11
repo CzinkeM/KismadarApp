@@ -29,3 +29,4 @@ fun ImageView.setIcon(item: Nature) {
         NatureType.LAKE -> R.drawable.ic_baseline_cloud_24
     })
 }
+//Boltokhoz kategóriák !?

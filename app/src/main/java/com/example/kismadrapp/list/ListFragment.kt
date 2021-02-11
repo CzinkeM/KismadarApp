@@ -26,6 +26,8 @@ class ListFragment : Fragment() {
         val category = args.category
         binding.recyclerRestaurant.adapter = viewModel.setAdapter(category)
         binding.recyclerRestaurant.layoutManager = viewModel.setLayoutManager(category)
+        binding.recyclerBackgroundImage.setImageResource(viewModel.setBackground(category))
+
         return binding.root
     }
 

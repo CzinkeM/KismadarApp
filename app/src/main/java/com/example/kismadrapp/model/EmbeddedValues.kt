@@ -54,7 +54,7 @@ data class EmbeddedValues(val res: Resources) {
             res.getString(R.string.town_name_felsotarkany) -> listOf(ResourcesCompat.getDrawable(res,R.drawable.felsotarkany, null)!!)
             res.getString(R.string.town_name_mezokovesd) -> listOf(ResourcesCompat.getDrawable(res,R.drawable.mezokovesd, null)!!)
             res.getString(R.string.town_name_szomolya) -> listOf(ResourcesCompat.getDrawable(res,R.drawable.szomolya, null)!!)
-            else -> listOf(ResourcesCompat.getDrawable(res,R.drawable.noszvaj_panorama_cut, null)!!)
+            else -> listOf(ResourcesCompat.getDrawable(res,R.drawable.noszvaj_panorama, null)!!)
         }
     }
 }

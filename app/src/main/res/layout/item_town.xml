@@ -17,6 +17,7 @@
         android:layout_marginHorizontal="5dp"
         android:onClick="@{()->townClickListener.onClick(town)}"
         app:cardBackgroundColor="@color/transparent40"
+        app:cardElevation="0dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -24,13 +25,13 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:id="@+id/townImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:src="@{town.img[0]}"
-                android:scaleType="center"
-                tools:src="@drawable/ic_launcher_background"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/bogacs"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -38,19 +39,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView4"
+                android:id="@+id/townName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:textColor="@color/black"
                 android:text="@{town.name}"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold |italic"
+                app:layout_constraintBottom_toBottomOf="@+id/townImage"
+                app:layout_constraintEnd_toEndOf="@+id/townImage"
+                app:layout_constraintStart_toStartOf="@+id/townImage"
+                app:layout_constraintTop_toTopOf="@+id/townImage"
                 tools:text="Some town name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

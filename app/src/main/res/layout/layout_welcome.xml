@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:background="@mipmap/noszvaj_panorama_cut"
+        android:background="@drawable/noszvaj_panorama_blur"
         android:src="@drawable/gradient_welcome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -16,6 +16,7 @@
         android:layout_marginHorizontal="5dp"
         android:onClick="@{()->shopClickListener.onClick(shop)}"
         app:cardBackgroundColor="@color/transparent40"
+        app:cardElevation="0dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,8 +29,8 @@
                 android:layout_height="110dp"
                 android:layout_margin="5dp"
                 android:src="@{shop.mainImage}"
-                android:scaleType="center"
-                tools:src="@drawable/ic_launcher_background"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/art_vector_shop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -50,7 +51,7 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.1"
-                tools:text="Some restaurant name" />
+                tools:text="Some shop name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
