@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/art_vector_settings" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchHun"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_marginVertical="10dp"
             android:text="Magyar" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchEng"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,6 +41,7 @@
             android:text="Angol" />
 
         <TextView
+            android:id="@+id/langTestText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -48,30 +49,13 @@
             android:layout_gravity="center"
             android:textSize="30sp"
             android:text="Some sample text" />
-        <LinearLayout
-            android:paddingTop="100dp"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/settingLanguageClose"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/settingLanguageSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="20dp"
-                android:text="Save"
-                />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/settingLanguageClose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="20dp"
-                android:text="Close"
-                />
-        </LinearLayout>
+            android:layout_gravity="center"
+            android:text="Close"
+            />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
