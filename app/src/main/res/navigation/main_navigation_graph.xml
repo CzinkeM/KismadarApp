@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_page_welcome"
         >
         <action
-            android:id="@+id/action_welcomePageFragment_to_listFragment"
-            app:destination="@id/listFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_welcomePageFragment_to_listActivity"
+            app:destination="@id/listActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/listFragment"
-        android:name="com.example.kismadrapp.list.ListFragment"
-        android:label="ListFragment" >
+    <activity
+        android:id="@+id/listActivity"
+        android:name="com.example.kismadrapp.ListActivity"
+        android:label="activity_list"
+        tools:layout="@layout/activity_list" >
         <argument
-            android:name="category"
+            android:name="categoryName"
             app:argType="string" />
-    </fragment>
+    </activity>
 </navigation>

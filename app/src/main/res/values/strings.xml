@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Kismadár App</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="welcome_title">Üdvözöljük Noszvajon</string>
     <!--Categories-->
     <string name="category_food_drink">Étel/Ital</string>
@@ -11,22 +11,23 @@
     <string name="category_nature">Természet</string>
     <string name="category_surroundings">Környék</string>
     <!--Town Names-->
-    <string name="town_name_bogacs">Bogács</string>
-    <string name="town_name_szomolya">Szomolya</string>
-    <string name="town_name_eger">Eger</string>
-    <string name="town_name_mezokovesd">Mezőkövesd</string>
-    <string name="town_name_felsotarkany">Felsőtárkány</string>
-    <string name="town_name_bukkzserc">Bükkzsérc</string>
-    <string name="town_name_cserepfalu">Cserépfalu</string>
+    <string name="town_name_bogacs" translatable="false">Bogács</string>
+    <string name="town_name_szomolya" translatable="false">Szomolya</string>
+    <string name="town_name_eger" translatable="false">Eger</string>
+    <string name="town_name_mezokovesd" translatable="false">Mezőkövesd</string>
+    <string name="town_name_felsotarkany" translatable="false">Felsőtárkány</string>
+    <string name="town_name_bukkzserc" translatable="false">Bükkzsérc</string>
+    <string name="town_name_cserepfalu" translatable="false">Cserépfalu</string>
     <!--Town-Description-->
-    <string name="test_town_des">Lorem ipsum dominumpas asdmo</string>
-    <string name="town_des_bogacs">Bogács</string>
-    <string name="town_des_szomolya">Szomolya</string>
-    <string name="town_des_eger">Eger</string>
-    <string name="town_des_mezokovesd">Mezőkövesd</string>
-    <string name="town_des_felsotarkany">Felsőtárkány</string>
-    <string name="town_des_bukkzserc">Bükkzsérc</string>
-    <string name="town_des_cserepfalu">Cserépfalu</string>
+    <string name="test_town_des" translatable="false">Lorem ipsum dominumpas asdmo</string>
+    <string name="town_des_bogacs" translatable="false">Bogács</string>
+    <string name="town_des_szomolya" translatable="false">Szomolya</string>
+    <string name="town_des_eger" translatable="false">Eger</string>
+    <string name="town_des_mezokovesd" translatable="false">Mezőkövesd</string>
+    <string name="town_des_felsotarkany" translatable="false">Felsőtárkány</string>
+    <string name="town_des_bukkzserc" translatable="false">Bükkzsérc</string>
+    <string name="town_des_cserepfalu" translatable="false">Cserépfalu</string>
     <!--Banner-->
     <string name="banner_discover">Fedezze fel...</string>
+    <string name="loremipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet bibendum nisi, eu eleifend tortor. Duis mollis aliquet finibus. Maecenas ligula nisl, sollicitudin quis quam in, ornare imperdiet ante. Curabitur ligula mi, pharetra nec malesuada in, fermentum hendrerit mi. Vivamus congue urna sed ultricies convallis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi laoreet sodales eleifend. Quisque sem magna, egestas eu ligula at, hendrerit congue ligula. </string>
 </resources>

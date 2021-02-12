@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kismadár App</string>
+    <string name="welcome_title">Welcome to Noszvaj</string>
+    <string name="category_food_drink">Food/Drink</string>
+    <string name="category_services">Services</string>
+    <string name="category_shops">Shops</string>
+    <string name="category_sights">Sights</string>
+    <string name="category_nature">Nature</string>
+    <string name="category_surroundings">Surrounding</string>
+    <string name="banner_discover">Discover...</string>
+</resources>
