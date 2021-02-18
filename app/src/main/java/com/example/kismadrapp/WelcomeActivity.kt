@@ -28,6 +28,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_KismadárApp)
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(WelcomeActivityViewModel::class.java)
         drawerLayout = findViewById(R.id.drawerLayout)
