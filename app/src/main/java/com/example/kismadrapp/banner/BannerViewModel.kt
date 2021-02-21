@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
-import com.example.kismadrapp.model.EmbeddedValues
+import com.example.kismadrapp.utils.EmbeddedValues
 import com.example.kismadrapp.model.Event
 import com.example.kismadrapp.model.ImageColors
 import kotlin.random.Random

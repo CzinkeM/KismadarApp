@@ -2,19 +2,24 @@ package com.example.kismadrapp.list
 
 import android.content.Context
 import android.util.Log
+import android.view.LayoutInflater
 import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.R
-import com.example.kismadrapp.model.EmbeddedValues
+import com.example.kismadrapp.utils.EmbeddedValues
 import com.example.kismadrapp.welcome.TownClickListener
 
-class ListViewModel(context: Context):ViewModel() {
+class ListViewModel(context: Context, fragmentManager: FragmentManager):ViewModel() {
     private val viewModelContext = context
+    private val viewModelFragmentManager = fragmentManager
 
     private val tag = "myTag"
+
     private val imgRestaurant = ResourcesCompat.getDrawable(context.resources,R.drawable.art_vector_food,null)!!
     private val imgNature = ResourcesCompat.getDrawable(context.resources,R.drawable.art_vector_trip,null)!!
     private val imgService = ResourcesCompat.getDrawable(context.resources,R.drawable.art_vector_services,null)!!

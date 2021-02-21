@@ -1,7 +1,9 @@
 package com.example.kismadrapp
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
 

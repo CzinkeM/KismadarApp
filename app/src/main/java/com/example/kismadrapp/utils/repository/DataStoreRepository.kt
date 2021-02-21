@@ -1,4 +1,4 @@
-package com.example.kismadrapp.repository
+package com.example.kismadrapp.utils.repository
 
 import android.content.Context
 import android.util.Log

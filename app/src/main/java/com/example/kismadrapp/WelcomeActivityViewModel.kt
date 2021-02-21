@@ -11,7 +11,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.kismadrapp.repository.DataStoreRepository
+import com.example.kismadrapp.utils.repository.DataStoreRepository
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
 import kotlinx.coroutines.Dispatchers

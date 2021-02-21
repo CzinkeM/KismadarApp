@@ -96,7 +96,7 @@ class WelcomeActivity : AppCompatActivity() {
             }
         }
     }
-    fun setMenuItemClickListener(navigationView: NavigationView) {
+    private fun setMenuItemClickListener(navigationView: NavigationView) {
         navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menuItemAbout -> {
