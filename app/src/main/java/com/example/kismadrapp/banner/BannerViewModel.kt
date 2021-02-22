@@ -9,13 +9,11 @@ import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
 import com.example.kismadrapp.getListOfTowns
 import com.example.kismadrapp.listOfEvents
-import com.example.kismadrapp.utils.EmbeddedValues
 import com.example.kismadrapp.model.Event
 import com.example.kismadrapp.model.ImageColors
 import kotlin.random.Random
 
 class BannerViewModel(resources: Resources):ViewModel() {
-    private val data = EmbeddedValues(resources)
     private val viewModelResources = resources
 
     fun getRandomTownImage(): Drawable{

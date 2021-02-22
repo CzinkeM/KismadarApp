@@ -17,7 +17,6 @@ import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
 import com.example.kismadrapp.generateCategoryList
 import com.example.kismadrapp.getListOfTowns
 import com.example.kismadrapp.list.*
-import com.example.kismadrapp.utils.EmbeddedValues
 
 class WelcomePageFragment : Fragment() {
 
@@ -29,13 +28,12 @@ class WelcomePageFragment : Fragment() {
         val viewModelFactory = WelcomePageViewModelFactory(resources)
         val viewModel = ViewModelProvider(this,viewModelFactory).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
-        val data = EmbeddedValues(resources)
 
-        val imgRestaurant = ResourcesCompat.getDrawable(context!!.resources,R.drawable.art_vector_food,null)!!
-        val imgNature = ResourcesCompat.getDrawable(context!!.resources,R.drawable.art_vector_trip,null)!!
-        val imgService = ResourcesCompat.getDrawable(context!!.resources,R.drawable.art_vector_services,null)!!
-        val imgShop = ResourcesCompat.getDrawable(context!!.resources,R.drawable.art_vector_shop,null)!!
-        val imgSight = ResourcesCompat.getDrawable(context!!.resources,R.drawable.art_vector_travellers,null)!!
+        val imgRestaurant = ResourcesCompat.getDrawable(context!!.resources,R.drawable.vector_food,null)!!
+        val imgNature = ResourcesCompat.getDrawable(context!!.resources,R.drawable.vector_trip,null)!!
+        val imgService = ResourcesCompat.getDrawable(context!!.resources,R.drawable.vector_services,null)!!
+        val imgShop = ResourcesCompat.getDrawable(context!!.resources,R.drawable.vector_shop,null)!!
+        val imgSight = ResourcesCompat.getDrawable(context!!.resources,R.drawable.vector_travellers,null)!!
         //Models
         val testRestaurant = Restaurant("Test Restaurant", "Test Street 32", "A legjobb éttereme a vidéken",
             Pricing.MODERATE,imgRestaurant,null)

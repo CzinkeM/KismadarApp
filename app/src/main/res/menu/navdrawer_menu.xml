@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:icon="@drawable/ic_iconmonstr_gear"
+        android:icon="@drawable/ic_gear"
         android:title="Kategóriák">
         <menu>
             <item
-                android:icon="@drawable/ic_iconmonstr_gear"
+                android:icon="@drawable/ic_restaurant"
                 android:title="@string/category_food_drink" />
             <item
-                android:icon="@drawable/ic_iconmonstr_gear"
+                android:icon="@drawable/ic_gear"
                 android:title="@string/category_nature" />
             <item
-                android:icon="@drawable/ic_iconmonstr_gear"
+                android:icon="@drawable/ic_gear"
                 android:title="@string/category_services" />
             <item
-                android:icon="@drawable/ic_iconmonstr_gear"
+                android:icon="@drawable/ic_gear"
                 android:title="@string/category_shops" />
             <item
-                android:icon="@drawable/ic_iconmonstr_gear"
+                android:icon="@drawable/ic_gear"
                 android:title="@string/category_sights" />
             <item
-                android:icon="@drawable/ic_iconmonstr_gear"
+                android:icon="@drawable/ic_gear"
                 android:title="@string/category_surroundings" />
         </menu>
     </item>
     <item
         android:id="@+id/menuItemAbout"
-        android:icon="@drawable/ic_iconmonstr_gear"
+        android:icon="@drawable/ic_gear"
         android:title="About" />
     <item
         android:id="@+id/menuItemContact"
-        android:icon="@drawable/ic_iconmonstr_gear"
+        android:icon="@drawable/ic_gear"
         android:title="Contact Us" />
     <item
         android:id="@+id/menuItemLanguage"
-        android:icon="@drawable/ic_iconmonstr_gear"
+        android:icon="@drawable/ic_gear"
         android:title="Language" />
 </menu>

@@ -31,7 +31,7 @@
                 android:layout_margin="5dp"
                 android:src="@{category.coverImage}"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/bogacs"
+                tools:src="@drawable/img_bogacs"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

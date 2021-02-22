@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.example.kismadrapp.generateCategoryList
 import com.example.kismadrapp.model.Category
 import com.example.kismadrapp.model.Town
-import com.example.kismadrapp.utils.EmbeddedValues
 
 class WelcomePageViewModel(resources: Resources):ViewModel(){
 

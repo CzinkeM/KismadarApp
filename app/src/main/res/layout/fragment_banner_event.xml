@@ -11,8 +11,7 @@
         android:id="@+id/bannerEventCardView"
         android:layout_height="150dp"
         android:layout_width="match_parent"
-        android:layout_marginVertical="5dp"
-        android:layout_marginHorizontal="5dp"
+        app:cardCornerRadius="12dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +28,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/art_vector_festivities" />
+                tools:src="@drawable/vector_festivities" />
 
             <ImageView
                 android:id="@+id/bannerGradient"

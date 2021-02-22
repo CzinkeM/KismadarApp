@@ -7,24 +7,24 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/art_vector_settings"
+        android:src="@drawable/vector_settings"
         android:scaleType="fitCenter"/>
     <com.google.android.material.button.MaterialButton
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Facebook"
-        app:icon="@drawable/ic_iconmonstr_shop"/>
+        app:icon="@drawable/ic_shop"/>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Weboldal"
-        app:icon="@drawable/ic_iconmonstr_shop"/>
+        app:icon="@drawable/ic_shop"/>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="E-mail"
-        app:icon="@drawable/ic_iconmonstr_map"/>
+        app:icon="@drawable/ic_map"/>
     <com.google.android.material.button.MaterialButton
         android:layout_marginTop="50dp"
         android:id="@+id/settingContactClose"

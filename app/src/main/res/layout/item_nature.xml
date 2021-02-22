@@ -30,13 +30,13 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:src="@{nature.mainImage}"
-                android:background="@color/transparent00"
+                android:background="@color/transparentFull"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/art_vector_trip" />
+                tools:src="@drawable/vector_trip" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/landmarkName"

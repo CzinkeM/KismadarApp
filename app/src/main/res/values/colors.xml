@@ -13,9 +13,10 @@
     <color name="transparent40">#66E5E5E5</color>
     <color name="transparent40_dark">#66000000</color>
     <color name="transparent20">#33000000</color>
-    <color name="transparent00">#00E5E5E5</color>
+    <color name="transparentFull">#00E5E5E5</color>
     <!-- My Theme Colors -->
     <color name="darkBlueGrey">#0A1128</color>
     <color name="lightBlue">#BFDBF7</color>
     <color name="vibrantBlueGreen">#1282A2</color>
+    <color name="vibrantTransparent20">#331282A2</color>
 </resources>

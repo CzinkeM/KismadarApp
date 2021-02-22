@@ -32,7 +32,7 @@
                 android:src="@{service.icon}"
                 android:background="@color/transparent40"
                 android:scaleType="fitCenter"
-                tools:src="@drawable/art_vector_services"
+                tools:src="@drawable/vector_services"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

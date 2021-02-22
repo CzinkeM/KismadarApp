@@ -37,7 +37,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/art_vector_travellers" />
+                tools:src="@drawable/vector_travellers" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sightName"

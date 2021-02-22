@@ -31,7 +31,7 @@
                 android:layout_margin="5dp"
                 android:src="@{restaurant.mainImage}"
                 android:scaleType="fitCenter"
-                tools:src="@drawable/art_vector_food"
+                tools:src="@drawable/vector_food"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
