@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomePageFragment"
-        android:name="com.example.kismadrapp.welcome.WelcomePageFragment"
+        android:name="com.example.kismadrapp.fragments.WelcomePageFragment"
         android:label="WelcomePageFragment"
         tools:layout="@layout/fragment_page_welcome"
         >

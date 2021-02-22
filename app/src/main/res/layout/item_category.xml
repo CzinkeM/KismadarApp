@@ -5,7 +5,7 @@
     <data>
         <variable
             name="category"
-            type="com.example.kismadrapp.model.CategoryModel" />
+            type="com.example.kismadrapp.models.CategoryModel" />
         <variable
             name="clickListener"
             type="com.example.kismadrapp.welcome.CategoryClickListener" />

@@ -14,7 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import com.example.kismadrapp.R
-import com.example.kismadrapp.WelcomeActivityViewModel
+import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
 
@@ -33,9 +33,9 @@ class WelcomeActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navView)
         viewModel.readFromDataStore.observe(this) { myName ->
-            Log.i("datastore",myName)
+            Log.i("datastore", myName)
         }
-        Log.i("DataStore","${viewModel.readFromDataStore.value} value")
+        Log.i("DataStore", "${viewModel.readFromDataStore.value} value")
         setMenuItemClickListener(navigationView)
 
         supportActionBar?.hide()
@@ -44,72 +44,73 @@ class WelcomeActivity : AppCompatActivity() {
     fun openDrawer() {
         drawerLayout.openDrawer(Gravity.LEFT)
     }
-    private fun createDialogWindow(itemId: Int, viewModel: WelcomeActivityViewModel){
+
+    private fun createDialogWindow(itemId: Int, viewModel: WelcomeActivityViewModel) {
         val dialogBuilder: AlertDialog.Builder
         val languagePopupView: View
         val closeButton: Button
 
         val switchLangHun: SwitchMaterial
         val switchLangEng: SwitchMaterial
-        when(itemId)
-        {
+        when (itemId) {
             R.id.menuItemLanguage -> {
                 dialogBuilder = AlertDialog.Builder(this)
-                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_language,null)
+                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_language, null)
                 dialogBuilder.setView(languagePopupView)
                 closeButton = languagePopupView.findViewById(R.id.settingLanguageClose)
                 switchLangEng = languagePopupView.findViewById(R.id.switchEng)
                 switchLangHun = languagePopupView.findViewById(R.id.switchHun)
-                viewModel.checkAndSetSwitchState(switchLangHun,switchLangEng)
+                viewModel.checkAndSetSwitchState(switchLangHun, switchLangEng)
                 dialog = dialogBuilder.create()
                 dialog.show()
-                closeButton.setOnClickListener{
-                    Toast.makeText(this,"Close",Toast.LENGTH_SHORT).show()
+                closeButton.setOnClickListener {
+                    Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show()
                     viewModel.saveToDataStore(resources.getString(R.string.key_language_en))
                     dialog.dismiss()
                 }
             }
             R.id.menuItemContact -> {
                 dialogBuilder = AlertDialog.Builder(this)
-                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_contact,null)
+                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_contact, null)
                 dialogBuilder.setView(languagePopupView)
                 closeButton = languagePopupView.findViewById(R.id.settingContactClose)
                 dialog = dialogBuilder.create()
                 dialog.show()
-                closeButton.setOnClickListener{
-                    Toast.makeText(this,"Close",Toast.LENGTH_SHORT).show()
+                closeButton.setOnClickListener {
+                    Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
             }
             R.id.menuItemAbout -> {
                 dialogBuilder = AlertDialog.Builder(this)
-                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_about,null)
+                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_about, null)
                 dialogBuilder.setView(languagePopupView)
                 closeButton = languagePopupView.findViewById(R.id.settingAboutClose)
                 dialog = dialogBuilder.create()
                 dialog.show()
-                closeButton.setOnClickListener{
-                    Toast.makeText(this,"Close",Toast.LENGTH_SHORT).show()
+                closeButton.setOnClickListener {
+                    Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
             }
         }
     }
+
     private fun setMenuItemClickListener(navigationView: NavigationView) {
         navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menuItemAbout -> {
-                    createDialogWindow(item.itemId,viewModel)
+                    createDialogWindow(item.itemId, viewModel)
                     Toast.makeText(this, "about", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.menuItemContact ->{
-                    createDialogWindow(item.itemId,viewModel)
+                R.id.menuItemContact -> {
+                    createDialogWindow(item.itemId, viewModel)
                     Toast.makeText(this, "contact", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.menuItemLanguage ->{
-                    createDialogWindow(item.itemId,viewModel)
+                R.id.menuItemLanguage -> {
+                    createDialogWindow(item.itemId, viewModel)
                     Toast.makeText(this, "language", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }

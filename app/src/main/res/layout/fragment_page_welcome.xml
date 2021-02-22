@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.kismadrapp.welcome.WelcomePageViewModel" />
+            type="com.example.kismadrapp.viewmodels.WelcomePageViewModel" />
     </data>
 
     <ScrollView
@@ -92,13 +92,13 @@
 
                     <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragmentEvent"
-                        android:name="com.example.kismadrapp.banner.BannerEventFragment"
+                        android:name="com.example.kismadrapp.fragments.BannerEventFragment"
                         android:layout_width="match_parent"
                         android:layout_height="150dp" />
 
                     <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragmentDiscover"
-                        android:name="com.example.kismadrapp.banner.BannerDiscoverFragment"
+                        android:name="com.example.kismadrapp.fragments.BannerDiscoverFragment"
                         android:layout_width="match_parent"
                         android:layout_height="150dp" />
                 </ViewFlipper>
