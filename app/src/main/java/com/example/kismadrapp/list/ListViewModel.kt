@@ -66,7 +66,7 @@ class ListViewModel(context: Context, fragmentManager: FragmentManager):ViewMode
                 },sightList)
             viewModelContext.getString(R.string.category_surroundings) -> adapter = TownAdapterVertical(
                 TownClickListener {
-                    townId -> Log.i(tag,townId)
+                    townId -> Log.i(tag,townId.categoryModelNam)
                 },data.listOfTowns)
             else -> adapter = RestaurantAdapter(RestaurantClickListener {
                     restaurantId -> Log.i(tag,"restaurantId")

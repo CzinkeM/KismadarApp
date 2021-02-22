@@ -3,12 +3,14 @@ package com.example.kismadrapp.welcome
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kismadrapp.databinding.ItemTownIconBinding
+import com.example.kismadrapp.databinding.ItemCategoryBinding
+import com.example.kismadrapp.databinding.ItemTownBinding
+import com.example.kismadrapp.model.CategoryModel
 import com.example.kismadrapp.model.Town
 
 class TownAdapter(
         private val clickListener: TownClickListener,
-        private val values: List<Town>
+        private val values: List<CategoryModel>
         ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -24,18 +26,18 @@ class TownAdapter(
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(private val binding: ItemTownIconBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: ItemTownBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Town, clickListener: TownClickListener) {
-            binding.town = item
-            binding.clickListener = clickListener
+        fun bind(item: CategoryModel, clickListener: TownClickListener) {
+            binding.category = item
+            binding.townClickListener = clickListener
             binding.executePendingBindings()
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemTownIconBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemTownBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -46,6 +48,6 @@ class TownAdapter(
     }
 }
 
-class TownClickListener(val clickListener: (townId: String) -> Unit) {
-    fun onClick(town: Town) = clickListener(town.name)
+class TownClickListener(val clickListener: (id: CategoryModel) -> Unit) {
+    fun onClick(town: CategoryModel) = clickListener(town)
 }

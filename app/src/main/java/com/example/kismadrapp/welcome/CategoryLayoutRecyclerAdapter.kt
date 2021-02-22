@@ -3,13 +3,12 @@ package com.example.kismadrapp.welcome
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kismadrapp.databinding.ItemCategoryBinding
+import com.example.kismadrapp.databinding.LayoutCategoryBinding
 import com.example.kismadrapp.model.Category
-import com.example.kismadrapp.model.CategoryModel
 
-class CategoryAdapter(
-        private val clickListener: CategoryClickListener,
-        private val values: List<CategoryModel>
+class CategoryLayoutRecyclerAdapter (
+    private val clickListener: CategoryLayoutClickListener,
+    private val values: List<Category>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -25,18 +24,18 @@ class CategoryAdapter(
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(private val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: LayoutCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CategoryModel, clickListener: CategoryClickListener) {
+        fun bind(item: Category, clickListener: CategoryLayoutClickListener) {
             binding.category = item
-            binding.clickListener = clickListener
+            binding.categoryClickListener = clickListener
             binding.executePendingBindings()
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)
+                val binding = LayoutCategoryBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -47,6 +46,6 @@ class CategoryAdapter(
     }
 }
 
-class CategoryClickListener(val clickListener: (id: CategoryModel) -> Unit) {
-    fun onClick(category: CategoryModel) = clickListener(category)
+class CategoryLayoutClickListener(val clickListener: (category: Category) -> Unit) {
+    fun onClick(category: Category) = clickListener(category)
 }

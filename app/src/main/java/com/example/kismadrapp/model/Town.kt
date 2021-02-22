@@ -9,6 +9,12 @@ class Town(
         val distance: Double,
         val sights :List<Sight>,
         val img: List<Drawable>
-) {
+):CategoryModel() {
+        override val categoryModelNam: String
+                get() = this.name
+        override val coverImage: Drawable
+                get() = this.img[0]
+        override val imageList: List<Drawable>?
+                get() = img
 
 }

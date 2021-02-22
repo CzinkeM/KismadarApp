@@ -5,12 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.ItemSightBinding
 import com.example.kismadrapp.databinding.ItemTownBinding
+import com.example.kismadrapp.model.CategoryModel
 import com.example.kismadrapp.model.Town
 import com.example.kismadrapp.welcome.TownClickListener
 
 class TownAdapterVertical(
     private val clickListener: TownClickListener,
-    private val values: List<Town>
+    private val values: List<CategoryModel>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -28,8 +29,8 @@ class TownAdapterVertical(
 
     class ViewHolder private constructor(private val binding: ItemTownBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Town, clickListener: TownClickListener) {
-            binding.town = item
+        fun bind(item: CategoryModel, clickListener: TownClickListener) {
+            binding.category = item
             binding.townClickListener = clickListener
             binding.executePendingBindings()
         }
