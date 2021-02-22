@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_welcomePageFragment_to_listActivity"
             app:destination="@id/listActivity" />
+        <action
+            android:id="@+id/action_welcomePageFragment_to_natureDetailsFragment"
+            app:destination="@id/natureDetailsFragment" />
     </fragment>
     <activity
         android:id="@+id/listActivity"
@@ -24,4 +27,13 @@
             android:name="categoryName"
             app:argType="string" />
     </activity>
+    <fragment
+        android:id="@+id/natureDetailsFragment"
+        android:name="com.example.kismadrapp.fragments.NatureDetailsFragment"
+        android:label="NatureDetailsFragment"
+        tools:layout="@layout/fragment_nature_details">
+        <action
+            android:id="@+id/action_natureDetailsFragment_to_welcomePageFragment"
+            app:destination="@id/welcomePageFragment" />
+    </fragment>
 </navigation>
