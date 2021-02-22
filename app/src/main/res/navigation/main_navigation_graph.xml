@@ -17,7 +17,7 @@
     </fragment>
     <activity
         android:id="@+id/listActivity"
-        android:name="com.example.kismadrapp.ListActivity"
+        android:name="com.example.kismadrapp.activities.ListActivity"
         android:label="activity_list"
         tools:layout="@layout/activity_list" >
         <argument

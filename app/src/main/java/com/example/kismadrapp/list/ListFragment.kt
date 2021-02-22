@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.kismadrapp.ListActivity
+import com.example.kismadrapp.activities.ListActivity
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentPageListBinding
 

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.R
+import com.example.kismadrapp.getListOfTowns
 import com.example.kismadrapp.utils.EmbeddedValues
 import com.example.kismadrapp.welcome.TownClickListener
 
@@ -67,7 +68,7 @@ class ListViewModel(context: Context, fragmentManager: FragmentManager):ViewMode
             viewModelContext.getString(R.string.category_surroundings) -> adapter = TownAdapterVertical(
                 TownClickListener {
                     townId -> Log.i(tag,townId.categoryModelNam)
-                },data.listOfTowns)
+                }, getListOfTowns(viewModelContext.resources))
             else -> adapter = RestaurantAdapter(RestaurantClickListener {
                     restaurantId -> Log.i(tag,"restaurantId")
             },restaurantList)

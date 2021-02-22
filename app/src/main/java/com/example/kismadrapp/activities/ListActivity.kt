@@ -1,11 +1,9 @@
-package com.example.kismadrapp
+package com.example.kismadrapp.activities
 
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
+import com.example.kismadrapp.R
 
 class ListActivity : AppCompatActivity() {
     val args: ListActivityArgs by navArgs()
