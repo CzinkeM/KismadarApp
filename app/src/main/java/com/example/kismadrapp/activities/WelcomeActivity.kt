@@ -69,18 +69,6 @@ class WelcomeActivity : AppCompatActivity() {
                     dialog.dismiss()
                 }
             }
-            R.id.menuItemContact -> {
-                dialogBuilder = AlertDialog.Builder(this)
-                languagePopupView = layoutInflater.inflate(R.layout.layout_setting_contact, null)
-                dialogBuilder.setView(languagePopupView)
-                closeButton = languagePopupView.findViewById(R.id.settingContactClose)
-                dialog = dialogBuilder.create()
-                dialog.show()
-                closeButton.setOnClickListener {
-                    Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show()
-                    dialog.dismiss()
-                }
-            }
             R.id.menuItemAbout -> {
                 dialogBuilder = AlertDialog.Builder(this)
                 languagePopupView = layoutInflater.inflate(R.layout.layout_setting_about, null)
@@ -102,11 +90,6 @@ class WelcomeActivity : AppCompatActivity() {
                 R.id.menuItemAbout -> {
                     createDialogWindow(item.itemId, viewModel)
                     Toast.makeText(this, "about", Toast.LENGTH_SHORT).show()
-                    return@setNavigationItemSelectedListener true
-                }
-                R.id.menuItemContact -> {
-                    createDialogWindow(item.itemId, viewModel)
-                    Toast.makeText(this, "contact", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.menuItemLanguage -> {

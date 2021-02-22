@@ -16,7 +16,13 @@
             app:destination="@id/listActivity" />
         <action
             android:id="@+id/action_welcomePageFragment_to_natureDetailsFragment"
-            app:destination="@id/natureDetailsFragment" />
+            app:destination="@id/natureDetailsFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@id/welcomePageFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <activity
         android:id="@+id/listActivity"
@@ -33,7 +39,16 @@
         android:label="NatureDetailsFragment"
         tools:layout="@layout/fragment_nature_details">
         <action
-            android:id="@+id/action_natureDetailsFragment_to_welcomePageFragment"
-            app:destination="@id/welcomePageFragment" />
+            android:id="@+id/action_natureDetailsFragment_to_welcomePageFragment2"
+            app:destination="@id/welcomePageFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@id/welcomePageFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="natureName"
+            app:argType="string" />
     </fragment>
 </navigation>

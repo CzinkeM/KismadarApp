@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:icon="@drawable/ic_gear"
         android:title="Kategóriák">
         <menu>
             <item
                 android:icon="@drawable/ic_restaurant"
                 android:title="@string/category_food_drink" />
             <item
-                android:icon="@drawable/ic_gear"
+                android:icon="@drawable/ic_tree"
                 android:title="@string/category_nature" />
             <item
                 android:icon="@drawable/ic_gear"
                 android:title="@string/category_services" />
             <item
-                android:icon="@drawable/ic_gear"
+                android:icon="@drawable/ic_shop"
                 android:title="@string/category_shops" />
             <item
-                android:icon="@drawable/ic_gear"
+                android:icon="@drawable/ic_building"
                 android:title="@string/category_sights" />
             <item
-                android:icon="@drawable/ic_gear"
+                android:icon="@drawable/ic_map"
                 android:title="@string/category_surroundings" />
+        </menu>
+    </item>
+    <item android:title="Contact Us">
+        <menu>
+            <item
+                android:id="@+id/menuContactFacebook"
+                android:icon="@drawable/ic_facebook"
+                android:title="Facebook" />
+            <item
+                android:id="@+id/menuContactEmail"
+                android:icon="@drawable/ic_email"
+                android:title="E-mail" />
+            <item
+                android:id="@+id/menuContactWebsite"
+                android:icon="@drawable/ic_web"
+                android:title="Website" />
         </menu>
     </item>
     <item
         android:id="@+id/menuItemAbout"
-        android:icon="@drawable/ic_gear"
+        android:icon="@drawable/ic_info"
         android:title="About" />
-    <item
-        android:id="@+id/menuItemContact"
-        android:icon="@drawable/ic_gear"
-        android:title="Contact Us" />
+
     <item
         android:id="@+id/menuItemLanguage"
-        android:icon="@drawable/ic_gear"
+        android:icon="@drawable/ic_language"
         android:title="Language" />
 </menu>

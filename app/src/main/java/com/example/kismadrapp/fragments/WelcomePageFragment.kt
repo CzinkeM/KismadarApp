@@ -49,7 +49,7 @@ class WelcomePageFragment : Fragment() {
             Pricing.MODERATE, imgRestaurant, null
         )
         val testNature = Nature(
-            "Tast ViewPoint",
+            "Test ViewPoint",
             NatureType.VIEWPOINT, "Ez egy leírás", imgNature, null
         )
         val testService = Service("Test Service", "Test Service's description", imgService, null)
@@ -165,7 +165,7 @@ class WelcomePageFragment : Fragment() {
         binding.natureRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-
+                findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToNatureDetailsFragment(it.categoryModelNam))
             }, natureList
         )
         binding.townRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
