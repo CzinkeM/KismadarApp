@@ -13,48 +13,57 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_homescreengit ">
+        android:background="@drawable/ic_android_mobile___1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
-                <include
-                    android:id="@+id/headerLayout"
-                    layout="@layout/layout_welcome"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp" />
 
-                <com.google.android.material.button.MaterialButton
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome_title"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.75" />
+
+                <ImageButton
                     android:id="@+id/drawerButton"
+                    android:src="@drawable/ic_menu"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    app:icon="@drawable/ic_menu"
-                    android:text="menu"
-                    android:textAlignment="center"
                     android:gravity="center"
+                    android:textAlignment="center"
+                    android:backgroundTint="@color/vibrantBlueGreen"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0" />
+
                 <include
                     android:id="@+id/include"
                     layout="@layout/layout_weather"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/materialTextView2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="1.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
