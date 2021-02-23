@@ -19,7 +19,7 @@ class RestaurantDetailFragment : Fragment() {
         val binding: FragmentDetailRestaurantBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_detail_restaurant, container, false)
         binding.buttonBackRestaurant.setOnClickListener {
-            findNavController().navigate(RestaurantDetailFragmentDirections.actionRestaurantDetailFragmentToWelcomePageFragment())
+            findNavController().navigate(RestaurantDetailFragmentDirections.restaurantDetailFragmentToWelcomePageFragment())
         }
         return binding.root
     }

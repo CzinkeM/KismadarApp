@@ -24,7 +24,7 @@ class NatureDetailsFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_details_nature, container, false)
         binding.nature = getNatureObject(args.natureName)
         binding.buttonBackNature.setOnClickListener {
-            findNavController().navigate(NatureDetailsFragmentDirections.actionNatureDetailsFragmentToWelcomePageFragment2())
+            findNavController().navigate(NatureDetailsFragmentDirections.natureDetailsFragmentToWelcomePageFragment())
         }
         return binding.root
     }

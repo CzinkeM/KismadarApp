@@ -18,7 +18,7 @@ class SightDetailFragment : Fragment() {
         val binding: FragmentDetailsSightBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_details_sight, container, false)
         binding.buttonBackSight.setOnClickListener {
-            findNavController().navigate(SightDetailFragmentDirections.actionSightDetailFragmentToWelcomePageFragment())
+            findNavController().navigate(SightDetailFragmentDirections.sightDetailFragmentToWelcomePageFragment())
         }
         return binding.root
     }

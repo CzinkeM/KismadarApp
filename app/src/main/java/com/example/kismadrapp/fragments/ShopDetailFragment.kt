@@ -19,7 +19,7 @@ class ShopDetailFragment : Fragment() {
         val binding: FragmentDetailShopBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_detail_shop, container, false)
         binding.buttonBackShop.setOnClickListener {
-            findNavController().navigate(ShopDetailFragmentDirections.actionShopDetailFragmentToWelcomePageFragment())
+            findNavController().navigate(ShopDetailFragmentDirections.shopDetailFragmentToWelcomePageFragment())
         }
         return binding.root
     }

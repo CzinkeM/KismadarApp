@@ -11,10 +11,10 @@
         android:label="WelcomePageFragment"
         tools:layout="@layout/fragment_page_welcome">
         <action
-            android:id="@+id/action_welcomePageFragment_to_listActivity"
+            android:id="@+id/welcomePageFragment_to_listActivity"
             app:destination="@id/listActivity" />
         <action
-            android:id="@+id/action_welcomePageFragment_to_natureDetailsFragment"
+            android:id="@+id/welcomePageFragment_to_natureDetailsFragment"
             app:destination="@id/natureDetailsFragment"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/slide_out_bottom"
@@ -23,23 +23,23 @@
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/action_welcomePageFragment_to_serviceDetailFragment"
+            android:id="@+id/welcomePageFragment_to_serviceDetailFragment"
             app:destination="@id/serviceDetailFragment"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/action_welcomePageFragment_to_restaurantDetailFragment"
+            android:id="@+id/welcomePageFragment_to_restaurantDetailFragment"
             app:destination="@id/restaurantDetailFragment"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/action_welcomePageFragment_to_shopDetailFragment"
+            android:id="@+id/welcomePageFragment_to_shopDetailFragment"
             app:destination="@id/shopDetailFragment"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/action_welcomePageFragment_to_sightDetailFragment"
+            android:id="@+id/welcomePageFragment_to_sightDetailFragment"
             app:destination="@id/sightDetailFragment"
             app:popUpToInclusive="false" />
         <action
-            android:id="@+id/action_welcomePageFragment_to_townDetailFragment"
+            android:id="@+id/welcomePageFragment_to_townDetailFragment"
             app:destination="@id/townDetailFragment"
             app:popUpToInclusive="false" />
     </fragment>
@@ -58,7 +58,7 @@
         android:label="NatureDetailsFragment"
         tools:layout="@layout/fragment_details_nature">
         <action
-            android:id="@+id/action_natureDetailsFragment_to_welcomePageFragment2"
+            android:id="@+id/natureDetailsFragment_to_welcomePageFragment"
             app:destination="@id/welcomePageFragment"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/slide_out_bottom"
@@ -76,7 +76,7 @@
         android:label="RestaurantDetailFragment"
         tools:layout="@layout/fragment_detail_restaurant">
         <action
-            android:id="@+id/action_restaurantDetailFragment_to_welcomePageFragment"
+            android:id="@+id/restaurantDetailFragment_to_welcomePageFragment"
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
@@ -87,7 +87,7 @@
         android:label="ServiceDetailFragment"
         tools:layout="@layout/fragment_detail_service">
         <action
-            android:id="@+id/action_serviceDetailFragment_to_welcomePageFragment"
+            android:id="@+id/serviceDetailFragment_to_welcomePageFragment"
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
@@ -98,7 +98,7 @@
         android:label="ShopDetailFragment"
         tools:layout="@layout/fragment_detail_shop">
         <action
-            android:id="@+id/action_shopDetailFragment_to_welcomePageFragment"
+            android:id="@+id/shopDetailFragment_to_welcomePageFragment"
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
@@ -109,7 +109,7 @@
         android:label="TownDetailFragment"
         tools:layout="@layout/fragment_details_town">
         <action
-            android:id="@+id/action_townDetailFragment_to_welcomePageFragment"
+            android:id="@+id/townDetailFragment_to_welcomePageFragment"
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
@@ -120,7 +120,7 @@
         android:label="SightDetailFragment"
         tools:layout="@layout/fragment_details_sight">
         <action
-            android:id="@+id/action_sightDetailFragment_to_welcomePageFragment"
+            android:id="@+id/sightDetailFragment_to_welcomePageFragment"
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />

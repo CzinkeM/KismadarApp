@@ -18,7 +18,7 @@ class ServiceDetailFragment : Fragment() {
         val binding: FragmentDetailServiceBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_detail_service, container, false)
         binding.buttonBackService.setOnClickListener {
-            findNavController().navigate(ServiceDetailFragmentDirections.actionServiceDetailFragmentToWelcomePageFragment())
+            findNavController().navigate(ServiceDetailFragmentDirections.serviceDetailFragmentToWelcomePageFragment())
         }
         return binding.root
     }

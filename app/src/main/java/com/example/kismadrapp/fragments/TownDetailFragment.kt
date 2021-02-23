@@ -19,7 +19,7 @@ class TownDetailFragment : Fragment() {
         val binding: FragmentDetailsTownBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_details_town, container, false)
         binding.buttonBackTown.setOnClickListener {
-            findNavController().navigate(TownDetailFragmentDirections.actionTownDetailFragmentToWelcomePageFragment())
+            findNavController().navigate(TownDetailFragmentDirections.townDetailFragmentToWelcomePageFragment())
         }
         return binding.root
     }
