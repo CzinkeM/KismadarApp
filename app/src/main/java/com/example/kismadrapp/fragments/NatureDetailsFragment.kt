@@ -22,12 +22,9 @@ class NatureDetailsFragment : Fragment() {
     ): View {
         val binding: FragmentDetailsNatureBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_details_nature,container,false)
         binding.nature = getNatureObject(args.natureName)
-        /*
-        binding.natureBackButton.setOnClickListener {
+        binding.buttonBackNature.setOnClickListener {
             findNavController().navigate(NatureDetailsFragmentDirections.actionNatureDetailsFragmentToWelcomePageFragment2())
         }
-
-         */
         return binding.root
     }
     private fun getNatureObject(string: String): Nature{
