@@ -16,8 +16,9 @@ import com.example.kismadrapp.activities.WelcomeActivity
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
 import com.example.kismadrapp.models.*
 import com.example.kismadrapp.viewmodels.WelcomePageViewModel
-import com.example.kismadrapp.welcome.CategoryAdapter
-import com.example.kismadrapp.welcome.CategoryClickListener
+import com.example.kismadrapp.utils.adapters.CategoryAdapter
+import com.example.kismadrapp.utils.adapters.CategoryClickListener
+import com.example.kismadrapp.utils.adapters.TownAdapter
 import com.example.kismadrapp.utils.viewmodelfactories.WelcomePageViewModelFactory
 
 class WelcomePageFragment : Fragment() {
@@ -36,13 +37,13 @@ class WelcomePageFragment : Fragment() {
         val imgRestaurant =
             ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_food, null)!!
         val imgNature =
-            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_trip, null)!!
+            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_hiking, null)!!
         val imgService =
-            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_services, null)!!
+            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_road_sign, null)!!
         val imgShop =
             ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_shop, null)!!
         val imgSight =
-            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_travellers, null)!!
+            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_hiking, null)!!
         //Models
         val testRestaurant = Restaurant(
             "Test Restaurant", "Test Street 32",
@@ -142,24 +143,25 @@ class WelcomePageFragment : Fragment() {
         binding.foodRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
+                findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToRestaurantDetailFragment())
             }, restaurantList
         )
         binding.serviceRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-
+                findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToServiceDetailFragment())
             }, serviceList
         )
         binding.shopRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-
+                findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToShopDetailFragment())
             }, shopList
         )
         binding.sightRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-
+                findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToSightDetailFragment())
             }, sightList
         )
         binding.natureRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
@@ -168,10 +170,10 @@ class WelcomePageFragment : Fragment() {
                 findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToNatureDetailsFragment(it.categoryModelNam))
             }, natureList
         )
-        binding.townRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
+        binding.townRecyclerView.categoryRecyclerView.adapter = TownAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-
+                findNavController().navigate(WelcomePageFragmentDirections.actionWelcomePageFragmentToTownDetailFragment())
             }, getListOfTowns(resources)
         )
 

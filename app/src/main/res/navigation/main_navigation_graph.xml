@@ -23,6 +23,21 @@
             app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_welcomePageFragment_to_serviceDetailFragment"
+            app:destination="@id/serviceDetailFragment" />
+        <action
+            android:id="@+id/action_welcomePageFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+        <action
+            android:id="@+id/action_welcomePageFragment_to_shopDetailFragment"
+            app:destination="@id/shopDetailFragment" />
+        <action
+            android:id="@+id/action_welcomePageFragment_to_sightDetailFragment"
+            app:destination="@id/sightDetailFragment" />
+        <action
+            android:id="@+id/action_welcomePageFragment_to_townDetailFragment"
+            app:destination="@id/townDetailFragment" />
     </fragment>
     <activity
         android:id="@+id/listActivity"
@@ -51,4 +66,29 @@
             android:name="natureName"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.example.kismadrapp.fragments.RestaurantDetailFragment"
+        android:label="RestaurantDetailFragment"
+        tools:layout="@layout/fragment_detail_restaurant"/>
+    <fragment
+        android:id="@+id/serviceDetailFragment"
+        android:name="com.example.kismadrapp.fragments.ServiceDetailFragment"
+        android:label="ServiceDetailFragment"
+        tools:layout="@layout/fragment_detail_service"/>
+    <fragment
+        android:id="@+id/shopDetailFragment"
+        android:name="com.example.kismadrapp.fragments.ShopDetailFragment"
+        android:label="ShopDetailFragment"
+        tools:layout="@layout/fragment_detail_shop"/>
+    <fragment
+        android:id="@+id/townDetailFragment"
+        android:name="com.example.kismadrapp.fragments.TownDetailFragment"
+        android:label="TownDetailFragment"
+        tools:layout="@layout/fragment_details_town"/>
+    <fragment
+        android:id="@+id/sightDetailFragment"
+        android:name="com.example.kismadrapp.fragments.SightDetailFragment"
+        android:label="SightDetailFragment"
+        tools:layout="@layout/fragment_details_sight"/>
 </navigation>

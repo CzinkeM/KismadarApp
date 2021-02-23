@@ -12,8 +12,8 @@ import com.example.kismadrapp.Pricing
 import com.example.kismadrapp.R
 import com.example.kismadrapp.getListOfTowns
 import com.example.kismadrapp.models.*
-import com.example.kismadrapp.welcome.CategoryAdapter
-import com.example.kismadrapp.welcome.CategoryClickListener
+import com.example.kismadrapp.utils.adapters.CategoryAdapter
+import com.example.kismadrapp.utils.adapters.CategoryClickListener
 
 class ListViewModel(context: Context, fragmentManager: FragmentManager) : ViewModel() {
     private val viewModelContext = context

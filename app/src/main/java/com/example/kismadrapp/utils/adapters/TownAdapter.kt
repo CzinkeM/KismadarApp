@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.ItemCategoryBinding
+import com.example.kismadrapp.databinding.ItemCategoryTownBinding
 import com.example.kismadrapp.models.CategoryModel
 
-class CategoryAdapter(
+class TownAdapter(
     private val clickListener: CategoryClickListener,
     private val values: List<CategoryModel>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -24,7 +25,7 @@ class CategoryAdapter(
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(private val binding: ItemCategoryBinding) :
+    class ViewHolder private constructor(private val binding: ItemCategoryTownBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: CategoryModel, clickListener: CategoryClickListener) {
@@ -36,7 +37,7 @@ class CategoryAdapter(
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemCategoryTownBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -45,8 +46,4 @@ class CategoryAdapter(
     override fun getItemCount(): Int {
         return values.size
     }
-}
-
-class CategoryClickListener(val clickListener: (id: CategoryModel) -> Unit) {
-    fun onClick(category: CategoryModel) = clickListener(category)
 }
