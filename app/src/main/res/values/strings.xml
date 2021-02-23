@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Kismadár App</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="welcome_title">Üdvözöljük Noszvajon</string>
     <!--keys-->
@@ -34,4 +33,7 @@
     <!--Banner-->
     <string name="banner_discover">Fedezze fel...</string>
     <string name="loremipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet bibendum nisi, eu eleifend tortor. Duis mollis aliquet finibus. Maecenas ligula nisl, sollicitudin quis quam in, ornare imperdiet ante. Curabitur ligula mi, pharetra nec malesuada in, fermentum hendrerit mi. Vivamus congue urna sed ultricies convallis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi laoreet sodales eleifend. Quisque sem magna, egestas eu ligula at, hendrerit congue ligula. </string>
+    <!--Contribute special thanks -->
+    <string name="iconmonstr" translatable="false">Icon monster</string>
+    <string name="drawkit" translatable="false">DrawKit.io</string>
 </resources>

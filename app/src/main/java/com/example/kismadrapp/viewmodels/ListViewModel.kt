@@ -142,7 +142,7 @@ class ListViewModel(context: Context, fragmentManager: FragmentManager) : ViewMo
 
     fun setBackground(categoryName: String): Int {
         return when (categoryName) {
-            else -> R.drawable.shape_homescreen
+            else -> R.drawable.shape_header
         }
     }
 }

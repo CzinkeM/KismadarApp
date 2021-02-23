@@ -91,7 +91,7 @@ fun generateCategoryList(res: Resources): List<Category> {
         res.getString(R.string.category_services)
     )
     val catShop = Category(
-        ResourcesCompat.getDrawable(res, R.drawable.ic_shop, null),
+        ResourcesCompat.getDrawable(res, R.drawable.vector_shop, null),
         res.getString(R.string.category_shops)
     )
     val catSight = Category(

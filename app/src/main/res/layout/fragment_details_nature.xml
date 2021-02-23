@@ -82,19 +82,19 @@
                         android:layout_height="100dp"
                         android:layout_weight="1"
                         android:layout_marginHorizontal="16dp"
-                        android:src="@drawable/vector_shop"/>
+                        android:src="@drawable/ic_add"/>
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
                         android:layout_marginHorizontal="16dp"
-                        android:src="@drawable/vector_shop"/>
+                        android:src="@drawable/ic_map_marker"/>
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
                         android:layout_marginHorizontal="16dp"
-                        android:src="@drawable/vector_shop"/>
+                        android:src="@drawable/vector_trip"/>
                 </LinearLayout>
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"

@@ -37,7 +37,7 @@
         android:id="@+id/natureDetailsFragment"
         android:name="com.example.kismadrapp.fragments.NatureDetailsFragment"
         android:label="NatureDetailsFragment"
-        tools:layout="@layout/fragment_nature_details">
+        tools:layout="@layout/fragment_details_nature">
         <action
             android:id="@+id/action_natureDetailsFragment_to_welcomePageFragment2"
             app:destination="@id/welcomePageFragment"

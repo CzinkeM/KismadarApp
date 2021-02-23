@@ -9,11 +9,9 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.navigation.navArgs
 import com.example.kismadrapp.NatureType
 import com.example.kismadrapp.R
-import com.example.kismadrapp.activities.ListActivityArgs
-import com.example.kismadrapp.databinding.FragmentNatureDetailsBinding
+import com.example.kismadrapp.databinding.FragmentDetailsNatureBinding
 import com.example.kismadrapp.models.Nature
 
 class NatureDetailsFragment : Fragment() {
@@ -22,7 +20,7 @@ class NatureDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentNatureDetailsBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_nature_details,container,false)
+        val binding: FragmentDetailsNatureBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_details_nature,container,false)
         binding.nature = getNatureObject(args.natureName)
         binding.natureBackButton.setOnClickListener {
             findNavController().navigate(NatureDetailsFragmentDirections.actionNatureDetailsFragmentToWelcomePageFragment2())
