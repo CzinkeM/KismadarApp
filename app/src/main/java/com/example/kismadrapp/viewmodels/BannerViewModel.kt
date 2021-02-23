@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
-import com.example.kismadrapp.getListOfTowns
+import com.example.kismadrapp.getTowns
 import com.example.kismadrapp.listOfEvents
 import com.example.kismadrapp.models.Event
 import com.example.kismadrapp.models.ImageColors
@@ -17,8 +17,8 @@ class BannerViewModel(resources: Resources) : ViewModel() {
     private val viewModelResources = resources
 
     fun getRandomTownImage(): Drawable {
-        val random = Random.nextInt(0, getListOfTowns(viewModelResources).size)
-        val town = getListOfTowns(viewModelResources)[random]
+        val random = Random.nextInt(0, getTowns(viewModelResources).size)
+        val town = getTowns(viewModelResources)[random]
         return getRandomImage(town.images)
     }
 

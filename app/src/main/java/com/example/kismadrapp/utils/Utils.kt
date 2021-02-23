@@ -3,15 +3,13 @@ package com.example.kismadrapp
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import androidx.core.content.res.ResourcesCompat
-import com.example.kismadrapp.models.Category
-import com.example.kismadrapp.models.Sight
-import com.example.kismadrapp.models.Town
+import com.example.kismadrapp.models.*
 import kotlin.random.Random
 
 enum class NatureType { LAKE, VIEWPOINT, SPRING, OTHER }
 enum class Pricing { CHEAP, MODERATE, EXPENSIVE, VEXPENSIVE }
 
-fun getListOfTowns(res: Resources): List<Town> {
+fun getTowns(res: Resources): List<Town> {
     val bogacsName = res.getString(R.string.town_name_bogacs)
     val szomolyaName = res.getString(R.string.town_name_szomolya)
     val egerName = res.getString(R.string.town_name_eger)
@@ -81,7 +79,7 @@ fun getListOfTowns(res: Resources): List<Town> {
     )
 }
 
-fun generateCategoryList(res: Resources): List<Category> {
+fun getCategories(res: Resources): List<Category> {
     val catFoodDrink = Category(
         ResourcesCompat.getDrawable(res, R.drawable.ic_restaurant, null),
         res.getString(R.string.category_food_drink)
@@ -180,4 +178,29 @@ fun listOfEvents(res: Resources): List<Drawable> {
     val eventList: List<Drawable>
     val img = ResourcesCompat.getDrawable(res, R.drawable.vector_festivities, null)!!
     return listOf(img, img, img)
+}
+
+fun getNatureSights(res: Resources): List<Nature>{
+    val testNatureSight = Nature("Példa Forrás",NatureType.SPRING,res.getString(R.string.loremipsum),ResourcesCompat.getDrawable(res,R.drawable.vector_hiking,null)!!,null)
+    return listOf(testNatureSight)
+}
+
+fun getRestaurants(res: Resources): List<Restaurant>{
+    val testRestaurant = Restaurant("Példa Étterem",res.getString(R.string.loremipsum),Pricing.MODERATE,ResourcesCompat.getDrawable(res,R.drawable.vector_food,null)!!,null)
+    return listOf(testRestaurant)
+}
+
+fun getServices(res: Resources): List<Service>{
+    val testService = Service("Példa Szolgáltatás",res.getString(R.string.loremipsum),ResourcesCompat.getDrawable(res,R.drawable.vector_road_sign,null)!!,null)
+    return listOf(testService)
+}
+
+fun getShops(res: Resources): List<Shop>{
+    val testShop = Shop("Példa Test",ResourcesCompat.getDrawable(res,R.drawable.vector_shop,null)!!,null)
+    return listOf(testShop)
+}
+
+fun getSights(res: Resources): List<Sight>{
+    val testSight = Sight("Példa Sight",res.getString(R.string.loremipsum),true,ResourcesCompat.getDrawable(res,R.drawable.vector_sight,null)!!,null)
+    return listOf(testSight)
 }

@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="category"
             type="com.example.kismadrapp.models.Category" />
+
         <variable
             name="categoryClickListener"
             type="com.example.kismadrapp.welcome.CategoryLayoutClickListener" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="15dp">
+        android:layout_margin="15dp"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,18 +27,18 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/materialTextView"
-                android:text="@{category.name}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:text="@{category.name}"
                 android:textColor="@color/lightBlue"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 tool:layout_constraintBottom_toBottomOf="parent"
                 tool:layout_constraintEnd_toEndOf="parent"
                 tool:layout_constraintHorizontal_bias="0.0"
                 tool:layout_constraintStart_toStartOf="parent"
                 tool:layout_constraintTop_toTopOf="@+id/imageView5"
-                tools:text="Some Category Name"
-                android:textStyle="bold"/>
+                tools:text="Some Category Name" />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -49,14 +53,14 @@
                 tool:layout_constraintTop_toTopOf="parent"
                 tool:tint="@color/lightBlue" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categoryRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:orientation="horizontal"
             tools:listitem="@layout/item_category"
-            />
+            tools:orientation="horizontal" />
     </LinearLayout>
 </layout>

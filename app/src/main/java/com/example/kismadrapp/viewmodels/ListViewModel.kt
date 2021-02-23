@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.NatureType
 import com.example.kismadrapp.Pricing
 import com.example.kismadrapp.R
-import com.example.kismadrapp.getListOfTowns
+import com.example.kismadrapp.getTowns
 import com.example.kismadrapp.models.*
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
@@ -115,7 +115,7 @@ class ListViewModel(context: Context, fragmentManager: FragmentManager) : ViewMo
             viewModelContext.getString(R.string.category_food_drink) -> list = restaurantList
             viewModelContext.getString(R.string.category_nature) -> list = natureList
             viewModelContext.getString(R.string.category_surroundings) -> list =
-                getListOfTowns(viewModelContext.resources) as ArrayList<CategoryModel>
+                getTowns(viewModelContext.resources) as ArrayList<CategoryModel>
             viewModelContext.getString(R.string.category_shops) -> list = shopList
             viewModelContext.getString(R.string.category_services) -> list = serviceList
             viewModelContext.getString(R.string.category_sights) -> list = sightList

@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.example.kismadrapp.viewmodels.WelcomePageViewModel" />
@@ -35,11 +37,11 @@
                     android:id="@+id/materialTextView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="32sp"
                     android:text="@string/welcome_title"
                     android:textColor="@color/dark_grey"
                     android:textSize="32sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="32sp"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -107,26 +109,31 @@
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/sightRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/serviceRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/foodRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/townRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/shopRecyclerView"
                 layout="@layout/layout_category"

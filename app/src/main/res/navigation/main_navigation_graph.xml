@@ -9,8 +9,7 @@
         android:id="@+id/welcomePageFragment"
         android:name="com.example.kismadrapp.fragments.WelcomePageFragment"
         android:label="WelcomePageFragment"
-        tools:layout="@layout/fragment_page_welcome"
-        >
+        tools:layout="@layout/fragment_page_welcome">
         <action
             android:id="@+id/action_welcomePageFragment_to_listActivity"
             app:destination="@id/listActivity" />
@@ -48,7 +47,7 @@
         android:id="@+id/listActivity"
         android:name="com.example.kismadrapp.activities.ListActivity"
         android:label="activity_list"
-        tools:layout="@layout/activity_list" >
+        tools:layout="@layout/activity_list">
         <argument
             android:name="categoryName"
             app:argType="string" />

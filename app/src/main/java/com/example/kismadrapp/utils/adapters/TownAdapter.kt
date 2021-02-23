@@ -3,7 +3,6 @@ package com.example.kismadrapp.utils.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kismadrapp.databinding.ItemCategoryBinding
 import com.example.kismadrapp.databinding.ItemCategoryTownBinding
 import com.example.kismadrapp.models.CategoryModel
 

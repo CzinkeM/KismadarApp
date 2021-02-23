@@ -18,12 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/main_navigation_graph" />
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/layout_drawer_header"
         android:background="@color/lightBlue"
-        app:menu="@menu/navdrawer_menu"/>
+        app:headerLayout="@layout/layout_drawer_header"
+        app:menu="@menu/navdrawer_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

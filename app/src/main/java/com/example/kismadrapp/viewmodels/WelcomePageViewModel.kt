@@ -2,7 +2,7 @@ package com.example.kismadrapp.viewmodels
 
 import android.content.res.Resources
 import androidx.lifecycle.ViewModel
-import com.example.kismadrapp.generateCategoryList
+import com.example.kismadrapp.getCategories
 import com.example.kismadrapp.models.Category
 import com.example.kismadrapp.models.Town
 
@@ -15,6 +15,6 @@ class WelcomePageViewModel(resources: Resources) : ViewModel() {
 
     init {
         townList = getTownList()
-        categoryList = generateCategoryList(resources)
+        categoryList = getCategories(resources)
     }
 }

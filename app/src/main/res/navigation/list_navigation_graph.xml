@@ -9,5 +9,5 @@
         android:id="@+id/listFragment"
         android:name="com.example.kismadrapp.fragments.ListFragment"
         android:label="ListFragment"
-        tools:layout="@layout/fragment_page_list"/>
+        tools:layout="@layout/fragment_page_list" />
 </navigation>

@@ -2,22 +2,20 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <padding android:top="10dp"/>
+            <padding android:top="10dp" />
             <corners
-                android:topRightRadius="90dp"
                 android:topLeftRadius="90dp"
-                />
-            <solid android:color="@color/vibrantBlueGreen"/>
+                android:topRightRadius="90dp" />
+            <solid android:color="@color/vibrantBlueGreen" />
         </shape>
     </item>
     <item>
-        <shape android:shape="rectangle" >
-            <padding android:top="0dp"/>
+        <shape android:shape="rectangle">
+            <padding android:top="0dp" />
             <corners
-                android:topRightRadius="90dp"
                 android:topLeftRadius="90dp"
-                />
-            <solid android:color="@color/lightBlue"/>
+                android:topRightRadius="90dp" />
+            <solid android:color="@color/lightBlue" />
 
         </shape>
     </item>
