@@ -1,7 +1,7 @@
 package com.example.kismadrapp.models
 
 import android.graphics.drawable.Drawable
-import com.example.kismadrapp.NatureType
+import com.example.kismadrapp.utils.NatureType
 
 class Nature(
     val name: String,

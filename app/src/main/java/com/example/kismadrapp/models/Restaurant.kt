@@ -1,7 +1,7 @@
 package com.example.kismadrapp.models
 
 import android.graphics.drawable.Drawable
-import com.example.kismadrapp.Pricing
+import com.example.kismadrapp.utils.Pricing
 
 class Restaurant(
     val name: String,

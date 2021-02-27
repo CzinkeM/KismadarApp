@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.findNavController
 import com.example.kismadrapp.R
+import com.example.kismadrapp.fragments.WelcomePageFragmentDirections
 import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -85,6 +87,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun setMenuItemClickListener(navigationView: NavigationView) {
+        // TODO: 2021. 02. 24. Cserélni a recyclerViewra a navigationt
         navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menuItemAbout -> {
@@ -97,6 +100,7 @@ class WelcomeActivity : AppCompatActivity() {
                     Toast.makeText(this, "language", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
+
                 else -> {
                     Toast.makeText(this, "Else happened", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true

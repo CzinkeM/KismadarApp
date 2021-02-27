@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.kismadrapp.NatureType
+import com.example.kismadrapp.utils.NatureType
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentDetailsNatureBinding
 import com.example.kismadrapp.models.Nature

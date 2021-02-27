@@ -7,8 +7,8 @@ import android.graphics.drawable.Drawable
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
-import com.example.kismadrapp.getTowns
-import com.example.kismadrapp.listOfEvents
+import com.example.kismadrapp.utils.getTowns
+import com.example.kismadrapp.utils.listOfEvents
 import com.example.kismadrapp.models.Event
 import com.example.kismadrapp.models.ImageColors
 import kotlin.random.Random

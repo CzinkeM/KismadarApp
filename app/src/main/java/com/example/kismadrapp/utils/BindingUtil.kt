@@ -5,6 +5,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.kismadrapp.models.Nature
 import com.example.kismadrapp.models.Restaurant
+import com.example.kismadrapp.utils.NatureType
+import com.example.kismadrapp.utils.Pricing
 
 @BindingAdapter("PricingText")
 fun TextView.setPricingText(item: Restaurant) {

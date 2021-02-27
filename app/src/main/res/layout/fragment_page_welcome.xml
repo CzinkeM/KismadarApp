@@ -129,13 +129,13 @@
                 android:layout_height="wrap_content" />
 
             <include
-                android:id="@+id/townRecyclerView"
+                android:id="@+id/shopRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
-                android:id="@+id/shopRecyclerView"
+                android:id="@+id/townRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
