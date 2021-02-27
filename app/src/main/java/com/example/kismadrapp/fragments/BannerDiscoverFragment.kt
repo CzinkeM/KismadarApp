@@ -23,11 +23,10 @@ class BannerDiscoverFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_banner_discover, container, false)
         val viewModelFactory = BannerViewModelFactory(resources)
         val viewModel = ViewModelProvider(this, viewModelFactory).get(BannerViewModel::class.java)
-        val generatedImage = viewModel.getRandomTownImage()
         binding.banner = Banner(
             resources.getString(R.string.banner_discover),
-            generatedImage,
-            viewModel.getColorsOfImage(generatedImage),
+            binding.bannerDiscoverBackground.drawable,
+            viewModel.getColorsOfImage(binding.bannerDiscoverBackground.drawable),
             null
         )
         return binding.root

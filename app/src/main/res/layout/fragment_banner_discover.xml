@@ -20,21 +20,22 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="200dp"
+                android:id="@+id/bannerDiscoverBackground"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/vector_settings"
+                android:src="@drawable/vector_touristmap"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+}            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient_banner"
-                android:backgroundTint="@{banner.color.colorMuted}"
+                android:backgroundTint="@{banner.color.colorVibrant}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@{banner.title}"
-                android:textColor="@color/white"
+                android:textColor="@color/darkBlueGrey"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -105,36 +105,48 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <include
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 android:id="@+id/natureRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 android:id="@+id/sightRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 android:id="@+id/serviceRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 android:id="@+id/foodRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 android:id="@+id/shopRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <include
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
                 android:id="@+id/townRecyclerView"
                 layout="@layout/layout_category"
                 android:layout_width="match_parent"

@@ -25,11 +25,10 @@ class BannerEventFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_banner_event, container, false)
         val viewModelFactory = BannerViewModelFactory(resources)
         val viewModel = ViewModelProvider(this, viewModelFactory).get(BannerViewModel::class.java)
-        val generatedImage = viewModel.getRandomEvent()
         binding.banner = Banner(
             resources.getString(R.string.banner_discover),
-            generatedImage,
-            viewModel.getColorsOfImage(generatedImage),
+            binding.bannerEventBackground.drawable,
+            viewModel.getColorsOfImage(binding.bannerEventBackground.drawable),
             viewModel.getRecentEvent()
         )
         return binding.root

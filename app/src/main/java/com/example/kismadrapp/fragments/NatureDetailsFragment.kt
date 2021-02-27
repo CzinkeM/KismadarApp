@@ -30,8 +30,7 @@ class NatureDetailsFragment : Fragment() {
     }
 
     private fun getNatureObject(string: String): Nature {
-        val imgNature =
-            ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_trip, null)!!
+        val imgNature = ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_hiking, null)!!
         val gottenNature = Nature(
             "Test ViewPoint",
             NatureType.VIEWPOINT, "Ez egy leírás", imgNature, null
