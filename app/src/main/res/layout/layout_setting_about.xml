@@ -14,13 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/vector_settings" />
+            app:srcCompat="@drawable/vector_home" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="About"
+            android:textColor="@color/lightBlue"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -28,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
+            android:textColor="@color/lightBlue"
             android:text="@string/loremipsum"
             android:textAlignment="center" />
 
@@ -36,6 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/lightBlue"
+            android:textColor="@color/darkBlueGrey"
             android:text="close" />
     </LinearLayout>
 </ScrollView>

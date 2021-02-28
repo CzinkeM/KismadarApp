@@ -17,6 +17,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kismadrapp.R
 import com.example.kismadrapp.fragments.WelcomePageFragmentDirections
+import com.example.kismadrapp.utils.openEmail
+import com.example.kismadrapp.utils.openFacebook
+import com.example.kismadrapp.utils.openWebsite
 import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
@@ -102,7 +105,18 @@ class WelcomeActivity : AppCompatActivity() {
                     Toast.makeText(this, "language", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
-
+                R.id.menuContactEmail -> {
+                    startActivity(openEmail(getString(R.string.emailAddress),"Applikáció"))
+                    true
+                }
+                R.id.menuContactFacebook -> {
+                    startActivity(openFacebook(packageManager,getString(R.string.facebookUrl)))
+                    true
+                }
+                R.id.menuContactWebsite -> {
+                    startActivity(openWebsite(getString(R.string.websiteUrl)))
+                    true
+                }
 
                 else -> {
                     Toast.makeText(this, "Else happened", Toast.LENGTH_SHORT).show()

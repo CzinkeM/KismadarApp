@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
-    android:layout_height="500dp">
+    android:layout_height="500dp"
+    android:background="@color/lightBlue">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -22,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/vector_settings" />
+            app:srcCompat="@drawable/vector_setting" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchHun"
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:layout_marginVertical="10dp"
+            android:textColor="@color/darkBlueGrey"
             android:text="Magyar" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -38,23 +40,16 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:layout_marginVertical="10dp"
+            android:textColor="@color/darkBlueGrey"
             android:text="Angol" />
-
-        <TextView
-            android:id="@+id/langTestText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:text="Some sample text"
-            android:textAlignment="center"
-            android:textSize="30sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/settingLanguageClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/darkBlueGrey"
+            android:textColor="@color/lightBlue"
             android:text="Close" />
 
     </LinearLayout>

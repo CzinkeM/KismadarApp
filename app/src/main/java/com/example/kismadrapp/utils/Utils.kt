@@ -242,9 +242,9 @@ fun openFacebook(packageManager: PackageManager,url: String): Intent{
 fun openWebsite(url: String): Intent{
     return Intent(Intent.ACTION_VIEW, Uri.parse(url))
 }
-fun openEmail(email: String,subject: String):Intent{
+fun openEmail(address: String,subject: String):Intent{
     val intent = Intent(Intent.ACTION_SENDTO)
-    intent.data = Uri.parse("mailto:$email")
+    intent.data = Uri.parse("mailto:$address")
     intent.putExtra(Intent.EXTRA_SUBJECT,subject)
     return intent
 }

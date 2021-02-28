@@ -36,4 +36,8 @@
     <!--Contribute special thanks -->
     <string name="iconmonstr" translatable="false">Icon monster</string>
     <string name="drawkit" translatable="false">DrawKit.io</string>
+    <string name="emailSubject" translatable="false">Subject</string>
+    <string name="emailAddress" translatable="false">czinke.marton@gmail.com</string>
+    <string name="facebookUrl" translatable="false">https://www.facebook.com/marton.czinke/</string>
+    <string name="websiteUrl" translatable="false">http://noszvaj.hu/</string>
 </resources>
