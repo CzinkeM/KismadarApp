@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.kismadrapp.R
 import com.example.kismadrapp.fragments.WelcomePageFragmentDirections
 import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
@@ -34,6 +35,7 @@ class WelcomeActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(WelcomeActivityViewModel::class.java)
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navView)
+        navigationView.setupWithNavController(findNavController(R.id.fragment))
         viewModel.readFromDataStore.observe(this) { myName ->
             Log.i("datastore", myName)
         }
@@ -100,6 +102,7 @@ class WelcomeActivity : AppCompatActivity() {
                     Toast.makeText(this, "language", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
+
 
                 else -> {
                     Toast.makeText(this, "Else happened", Toast.LENGTH_SHORT).show()
