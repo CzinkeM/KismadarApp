@@ -10,148 +10,160 @@
             type="com.example.kismadrapp.viewmodels.WelcomePageViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/darkBlueGrey">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/darkBlueGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="0dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/shape_header"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/materialTextView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="32sp"
-                    android:text="@string/welcome_title"
-                    android:textColor="@color/dark_grey"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:background="@drawable/shape_header"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/drawerButton"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="16dp"
-                    android:backgroundTint="@color/vibrantBlueGreen"
-                    android:gravity="center"
-                    android:src="@drawable/ic_menu"
-                    android:textAlignment="center"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/materialTextView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32sp"
+                        android:text="@string/welcome_title"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <ImageButton
+                        android:id="@+id/drawerButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="16dp"
+                        android:backgroundTint="@color/vibrantBlueGreen"
+                        android:gravity="center"
+                        android:src="@drawable/ic_menu"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <include
+                        android:id="@+id/include"
+                        layout="@layout/layout_weather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        app:layout_constraintBottom_toTopOf="@+id/materialTextView2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <ViewFlipper
+                        android:id="@+id/viewFlipper"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:inAnimation="@android:anim/slide_in_left"
+                        android:outAnimation="@android:anim/slide_out_right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:background="@color/white">
+
+                        <androidx.fragment.app.FragmentContainerView
+                            android:id="@+id/fragmentEvent"
+                            android:name="com.example.kismadrapp.fragments.BannerEventFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp" />
+
+                        <androidx.fragment.app.FragmentContainerView
+                            android:id="@+id/fragmentDiscover"
+                            android:name="com.example.kismadrapp.fragments.BannerDiscoverFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp" />
+                    </ViewFlipper>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <include
-                    android:id="@+id/include"
-                    layout="@layout/layout_weather"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    app:layout_constraintBottom_toTopOf="@+id/materialTextView2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <ViewFlipper
-                    android:id="@+id/viewFlipper"
+                    android:id="@+id/natureRecyclerView"
+                    layout="@layout/layout_category"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
-                    android:inAnimation="@android:anim/slide_in_left"
-                    android:outAnimation="@android:anim/slide_out_right"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:background="@color/white">
+                    android:layout_marginVertical="16dp" />
 
-                    <androidx.fragment.app.FragmentContainerView
-                        android:id="@+id/fragmentEvent"
-                        android:name="com.example.kismadrapp.fragments.BannerEventFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp" />
+                <include
+                    android:id="@+id/sightRecyclerView"
+                    layout="@layout/layout_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp" />
 
-                    <androidx.fragment.app.FragmentContainerView
-                        android:id="@+id/fragmentDiscover"
-                        android:name="com.example.kismadrapp.fragments.BannerDiscoverFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp" />
-                </ViewFlipper>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <include
+                    android:id="@+id/serviceRecyclerView"
+                    layout="@layout/layout_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp" />
 
-            <include
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:id="@+id/natureRecyclerView"
-                layout="@layout/layout_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <include
+                    android:id="@+id/foodRecyclerView"
+                    layout="@layout/layout_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp" />
 
-            <include
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:id="@+id/sightRecyclerView"
-                layout="@layout/layout_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <include
+                    android:id="@+id/shopRecyclerView"
+                    layout="@layout/layout_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp" />
 
-            <include
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:id="@+id/serviceRecyclerView"
-                layout="@layout/layout_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <include
+                    android:id="@+id/townRecyclerView"
+                    layout="@layout/layout_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp" />
 
-            <include
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:id="@+id/foodRecyclerView"
-                layout="@layout/layout_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
 
-            <include
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:id="@+id/shopRecyclerView"
-                layout="@layout/layout_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:id="@+id/townRecyclerView"
-                layout="@layout/layout_category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-    </ScrollView>
 </layout>

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kismadrapp.R
@@ -21,6 +22,8 @@ import com.example.kismadrapp.utils.openEmail
 import com.example.kismadrapp.utils.openFacebook
 import com.example.kismadrapp.utils.openWebsite
 import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
 
@@ -29,7 +32,6 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var viewModel: WelcomeActivityViewModel
     lateinit var navigationView: NavigationView
     private lateinit var dialog: Dialog
-    private lateinit var texr: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,9 @@ class WelcomeActivity : AppCompatActivity() {
         setMenuItemClickListener(navigationView)
 
         supportActionBar?.hide()
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val navController = findNavController(R.id.fragment)
+        bottomNavigation.setupWithNavController(navController)
     }
 
     fun openDrawer() {
@@ -125,6 +130,4 @@ class WelcomeActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

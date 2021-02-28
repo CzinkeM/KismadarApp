@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/bottomNavHome"
+        android:id="@+id/bottomNavSettings"
+        android:icon="@drawable/ic_menu"
+        android:title="Setting"/>
+
+    <item
+        android:id="@+id/welcomePageFragment"
         android:icon="@drawable/ic_home"
         android:title="Home"
         />
     <item
-        android:id="@+id/bottomNavMyTrips"
-        android:icon="@drawable/ic_list"
-        android:title="My Trips"
+        android:id="@+id/serviceDetailFragment"
+        android:icon="@drawable/ic_qr_code"
+        android:title="Scan QR"/>
+    <item
+        android:id="@+id/restaurantDetailFragment"
+        android:icon="@drawable/ic_map"
+        android:title="Túráim"
         />
 </menu>
