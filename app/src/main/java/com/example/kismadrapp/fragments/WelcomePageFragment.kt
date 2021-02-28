@@ -1,18 +1,21 @@
 package com.example.kismadrapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kismadrapp.*
 import com.example.kismadrapp.activities.WelcomeActivity
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
+import com.example.kismadrapp.models.Weather
 import com.example.kismadrapp.utils.*
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
@@ -33,7 +36,6 @@ class WelcomePageFragment : Fragment() {
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
-
         binding.foodRecyclerView.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.serviceRecyclerView.categoryRecyclerView.layoutManager =
@@ -127,6 +129,13 @@ class WelcomePageFragment : Fragment() {
             val act = activity as WelcomeActivity
             act.openDrawer()
         }
+        val activity = activity as WelcomeActivity
+        activity.temperature.observe(viewLifecycleOwner, Observer {
+            binding.weatherFragment.weather = Weather("$it°C", "cloudy")
+            Log.i("weather","temperature: ${it}")
+        })
+
+
         return binding.root
     }
 

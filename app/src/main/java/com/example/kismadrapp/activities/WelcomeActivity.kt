@@ -1,6 +1,7 @@
 package com.example.kismadrapp.activities
 
 import android.app.Dialog
+import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -11,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
@@ -26,17 +29,25 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
+import org.json.JSONObject
+import java.net.URL
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var viewModel: WelcomeActivityViewModel
     lateinit var navigationView: NavigationView
     private lateinit var dialog: Dialog
+    private var _temperature = MutableLiveData<String>()
+    val temperature: LiveData<String>
+        get() = _temperature
+    lateinit var weatherStatus: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_KismadárApp)
         setContentView(R.layout.activity_main)
+        weatherStatus = ""
+        WeatherTask().execute()
         viewModel = ViewModelProvider(this).get(WelcomeActivityViewModel::class.java)
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navView)
@@ -127,6 +138,42 @@ class WelcomeActivity : AppCompatActivity() {
                     Toast.makeText(this, "Else happened", Toast.LENGTH_SHORT).show()
                     return@setNavigationItemSelectedListener true
                 }
+            }
+        }
+    }
+
+    inner class WeatherTask: AsyncTask<String,Void,String>(){
+        override fun onPreExecute() {
+            super.onPreExecute()
+        }
+
+        override fun doInBackground(vararg params: String?): String? {
+            var response: String?
+            try {
+                response = URL("https://api.openweathermap.org/data/2.5/weather?q=noszvaj&appid=dd3227b3492522fd76affb3c83e672f6&units=metric")
+                    .readText(Charsets.UTF_8)
+                Log.i("weather","Api call success")
+                Log.i("weather",response)
+
+            }catch (e: Exception){
+                response = null
+                Log.i("weather","Api call failed: ${e.message}")
+            }
+            return  response
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            try {
+                val jsonObject = JSONObject(result)
+                val main = jsonObject.getJSONObject("main")
+                //val weather = jsonObject.getJSONObject("weather")
+                Log.i("weather","Act temp: ${main.getString("temp")}")
+                _temperature.value = main.getString("temp")
+                //weatherStatus = weather.getString("main")
+
+            } catch (e: Exception) {
+
             }
         }
     }
