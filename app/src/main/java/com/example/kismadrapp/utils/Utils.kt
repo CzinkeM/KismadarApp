@@ -244,6 +244,7 @@ fun openWebsite(url: String): Intent{
 }
 fun openEmail(address: String,subject: String):Intent{
     val intent = Intent(Intent.ACTION_SENDTO)
+    intent.type = "text/plain"
     intent.data = Uri.parse("mailto:$address")
     intent.putExtra(Intent.EXTRA_SUBJECT,subject)
     return intent
