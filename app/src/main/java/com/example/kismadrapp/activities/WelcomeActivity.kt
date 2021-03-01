@@ -1,15 +1,16 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.kismadrapp.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -33,8 +34,12 @@ import java.net.URL
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var viewModel: WelcomeActivityViewModel
-    lateinit var drawerNavigationView: NavigationView
+    private lateinit var drawerNavigationView: NavigationView
     private lateinit var bottomNavigationView: BottomNavigationView
+
+    private var _isLoading = MutableLiveData<Boolean>()
+    val isLoading:LiveData<Boolean>
+    get() = _isLoading
 
     private var _weather = MutableLiveData<Weather>()
     val weather: LiveData<Weather>
@@ -45,11 +50,11 @@ class WelcomeActivity : AppCompatActivity() {
         setTheme(R.style.Theme_KismadárApp)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-        WeatherTask().execute()
         viewModel = ViewModelProvider(this).get(WelcomeActivityViewModel::class.java)
         drawerLayout = findViewById(R.id.drawerLayout)
         drawerNavigationView = findViewById(R.id.navView)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        WeatherTask(this).execute()
         val bottomNavigationQRCodeButton = findViewById<BottomNavigationItemView>(R.id.bottomNavQr)
         val bottomNavigationOpenDrawerButton = findViewById<BottomNavigationItemView>(R.id.bottomNavSettings)
         val navController = findNavController(R.id.fragment)
@@ -65,6 +70,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("RtlHardcoded")
     fun openDrawer() {
         drawerLayout.openDrawer(Gravity.LEFT)
     }
@@ -92,43 +98,6 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
-    private inner class WeatherTask: AsyncTask<String, Void, String>(){
-        override fun onPreExecute() {
-            super.onPreExecute()
-        }
-
-        override fun doInBackground(vararg params: String?): String? {
-            var response: String?
-            try {
-                response = URL("https://api.openweathermap.org/data/2.5/weather?q=noszvaj&appid=dd3227b3492522fd76affb3c83e672f6&units=metric&lang=hu")
-                    .readText(Charsets.UTF_8)
-                Log.i("weather", "Api call success")
-                Log.i("weather", response)
-
-            }catch (e: Exception){
-                response = null
-                Log.i("weather", "Api call failed: ${e.message}")
-            }
-            return  response
-        }
-
-        override fun onPostExecute(result: String?) {
-            super.onPostExecute(result)
-            try {
-                val jsonObject = JSONObject(result)
-                val main = jsonObject.getJSONObject("main")
-                val status = jsonObject.getJSONArray("weather").getJSONObject(0)
-                Log.i("weather", "Act temp: ${main.getString("temp")}")
-                val weather = Weather(main.getString("temp"), status.getString("main"))
-                _weather.value = weather
-                //weatherStatus = weather.getString("main")
-
-            } catch (e: Exception) {
-
-            }
-        }
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
@@ -136,11 +105,49 @@ class WelcomeActivity : AppCompatActivity() {
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
-                    // TODO: 2021. 03. 01. Custom function to navigate to Model Detail Pages
+                    // TODO: 2021. 03. 01. Custom function to navigate to Model DetailPages
                     Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
                 }
             } else {
                 super.onActivityResult(requestCode, resultCode, data)
+            }
+        }
+    }
+
+    companion object {
+        private class WeatherTask(private val welcomeActivity: WelcomeActivity) : AsyncTask<String, Void, String>(){
+            override fun onPreExecute() {
+                welcomeActivity._isLoading.value = true
+            }
+    
+            override fun doInBackground(vararg params: String?): String? {
+                var response: String?
+                try {
+                    response = URL("https://api.openweathermap.org/data/2.5/weather?q=noszvaj&appid=dd3227b3492522fd76affb3c83e672f6&units=metric&lang=hu")
+                        .readText(Charsets.UTF_8)
+                    Log.i("weather", "Api call success")
+                    Log.i("weather", response)
+    
+                }catch (e: Exception){
+                    response = null
+                    Log.i("weather", "Api call failed: ${e.message}")
+                }
+                return  response
+            }
+    
+            override fun onPostExecute(result: String?) {
+                super.onPostExecute(result)
+                try {
+                    val jsonObject = JSONObject(result!!)
+                    val main = jsonObject.getJSONObject("main")
+                    val status = jsonObject.getJSONArray("weather").getJSONObject(0)
+                    Log.i("weather", "Act temp: ${main.getString("temp")}")
+                    val weather = Weather(main.getString("temp")+"°C", status.getString("main"))
+                    welcomeActivity._weather.value = weather
+                    welcomeActivity._isLoading.value = false
+                } catch (e: Exception) {
+    
+                }
             }
         }
     }
