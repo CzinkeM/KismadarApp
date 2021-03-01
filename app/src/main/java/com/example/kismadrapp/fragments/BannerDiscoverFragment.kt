@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentBannerDiscoverBinding
 import com.example.kismadrapp.models.Banner
-import com.example.kismadrapp.utils.viewmodelfactories.BannerViewModelFactory
 import com.example.kismadrapp.viewmodels.BannerViewModel
 
 class BannerDiscoverFragment : Fragment() {
@@ -18,11 +17,9 @@ class BannerDiscoverFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         val binding: FragmentBannerDiscoverBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_banner_discover, container, false)
-        val viewModelFactory = BannerViewModelFactory(resources)
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(BannerViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(BannerViewModel::class.java)
         binding.banner = Banner(
             resources.getString(R.string.banner_discover),
             binding.bannerDiscoverBackground.drawable,

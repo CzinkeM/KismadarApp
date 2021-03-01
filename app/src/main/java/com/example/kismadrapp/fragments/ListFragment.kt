@@ -24,11 +24,10 @@ class ListFragment : Fragment() {
         val category = args.categoryName
         val binding: FragmentPageListBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_page_list, container, false)
-        val viewModelFactory = ListPageFragmentViewModelFactory(context!!, childFragmentManager)
+        val viewModelFactory = ListPageFragmentViewModelFactory(context!!)
         val viewModel = ViewModelProvider(this, viewModelFactory).get(ListViewModel::class.java)
         binding.recyclerRestaurant.adapter = viewModel.setAdapter(category)
         binding.recyclerRestaurant.layoutManager = viewModel.setLayoutManager(category)
-        //binding.recyclerBackgroundImage.setImageResource(viewModel.setBackground(category))
         return binding.root
     }
 

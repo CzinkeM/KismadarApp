@@ -7,13 +7,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kismadrapp.viewmodels.ListViewModel
 
 class ListPageFragmentViewModelFactory(
-    private val context: Context,
-    private val fragmentManager: FragmentManager
+    private val context: Context
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
-            return ListViewModel(context, fragmentManager) as T
+            return ListViewModel(context) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

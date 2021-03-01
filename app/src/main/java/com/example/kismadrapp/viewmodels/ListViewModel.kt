@@ -11,7 +11,7 @@ import com.example.kismadrapp.utils.*
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
 import com.example.kismadrapp.utils.adapters.CategoryVerticalAdapter
 
-class ListViewModel(context: Context, fragmentManager: FragmentManager) : ViewModel() {
+class ListViewModel(context: Context) : ViewModel() {
     private val viewModelContext = context
 
     fun setAdapter(categoryName: String): RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -67,11 +67,5 @@ class ListViewModel(context: Context, fragmentManager: FragmentManager) : ViewMo
             else -> linearLayout
         }
         return layoutManager
-    }
-
-    fun setBackground(categoryName: String): Int {
-        return when (categoryName) {
-            else -> R.drawable.shape_header
-        }
     }
 }

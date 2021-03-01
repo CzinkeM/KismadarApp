@@ -77,6 +77,9 @@
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="restaurantName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/serviceDetailFragment"
@@ -88,6 +91,9 @@
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="serviceName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/shopDetailFragment"
@@ -99,6 +105,9 @@
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="shopName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/townDetailFragment"
@@ -110,6 +119,9 @@
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="townName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/sightDetailFragment"
@@ -121,6 +133,8 @@
             app:destination="@id/welcomePageFragment"
             app:popUpTo="@id/welcomePageFragment"
             app:popUpToInclusive="true" />
+        <argument android:name="sightName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"

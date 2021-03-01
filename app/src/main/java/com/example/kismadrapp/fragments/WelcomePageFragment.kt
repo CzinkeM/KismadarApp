@@ -16,14 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kismadrapp.*
 import com.example.kismadrapp.activities.WelcomeActivity
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
-import com.example.kismadrapp.models.Weather
 import com.example.kismadrapp.utils.*
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
 import com.example.kismadrapp.utils.adapters.TownAdapter
 import com.example.kismadrapp.utils.viewmodelfactories.WelcomePageViewModelFactory
 import com.example.kismadrapp.viewmodels.WelcomePageViewModel
-import com.example.kismadrapp.welcome.CategoryLayoutClickListener
 
 class WelcomePageFragment : Fragment() {
 
@@ -37,7 +35,7 @@ class WelcomePageFragment : Fragment() {
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
-        binding.foodRecyclerView.categoryRecyclerView.layoutManager =
+        binding.restaurantRecyclerView.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.serviceRecyclerView.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -53,7 +51,7 @@ class WelcomePageFragment : Fragment() {
         binding.natureRecyclerView.category = getCategoryNatureSight(resources)
         binding.sightRecyclerView.category = getCategorySight(resources)
         binding.serviceRecyclerView.category = getCategoryServices(resources)
-        binding.foodRecyclerView.category = getCategoryFood(resources)
+        binding.restaurantRecyclerView.category = getCategoryFood(resources)
         binding.shopRecyclerView.category = getCategoryShop(resources)
         binding.townRecyclerView.category = getCategoryTowns(resources)
 
@@ -70,7 +68,7 @@ class WelcomePageFragment : Fragment() {
             findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
                 getCategoryServices(resources).name))
         }
-        binding.foodRecyclerView.categoryHeader.setOnClickListener {
+        binding.restaurantRecyclerView.categoryHeader.setOnClickListener {
             findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
                 getCategoryFood(resources).name))
         }
@@ -84,44 +82,39 @@ class WelcomePageFragment : Fragment() {
         }
 
 
-        binding.foodRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
+        binding.restaurantRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToRestaurantDetailFragment())
+                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToRestaurantDetailFragment(it.categoryModelName))
             }, getRestaurants(resources)
         )
         binding.serviceRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToServiceDetailFragment())
+                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToServiceDetailFragment(it.categoryModelName))
             }, getServices(resources)
         )
         binding.shopRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToShopDetailFragment())
+                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToShopDetailFragment(it.categoryModelName))
             }, getShops(resources)
         )
         binding.sightRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToSightDetailFragment())
+                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToSightDetailFragment(it.categoryModelName))
             }, getSights(resources)
         )
         binding.natureRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, it.categoryModelName, Toast.LENGTH_SHORT).show()
                 findNavController().navigate(
                     WelcomePageFragmentDirections.welcomePageFragmentToNatureDetailsFragment(
-                        it.categoryModelNam
+                        it.categoryModelName
                     )
                 )
             }, getNatureSights(resources)
         )
         binding.townRecyclerView.categoryRecyclerView.adapter = TownAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelNam, Toast.LENGTH_SHORT).show()
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToTownDetailFragment())
+                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToTownDetailFragment(it.categoryModelName))
             }, getTowns(resources)
         )
 

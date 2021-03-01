@@ -21,14 +21,7 @@ class MyTripsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View{
         val binding: FragmentMyTripsBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_trips,container,false)
-        val sightsToSee = mutableListOf<CategoryModel>()
-        val natureSight = getNatureSights(resources)[0]
-        sightsToSee.add(natureSight)
-        sightsToSee.add(natureSight)
-        sightsToSee.add(natureSight)
-        sightsToSee.add(natureSight)
-        val testTrip = Trip("Kedvenceim",sightsToSee)
-        val testTripList = listOf(testTrip)
+        val testTripList = listOf<Trip>()
         binding.tripRecyclerView .adapter = TripAdapter(TripClickListener {
             Toast.makeText(context,"${it.name}, destiantions: ${it.destinations.size}",Toast.LENGTH_SHORT).show()
         },testTripList)

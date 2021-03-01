@@ -15,7 +15,6 @@ class CategoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         val binding: LayoutCategoryBinding =
             DataBindingUtil.inflate(inflater, R.layout.layout_category, container, false)
 

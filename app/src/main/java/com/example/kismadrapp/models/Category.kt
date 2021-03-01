@@ -6,7 +6,7 @@ class Category(
     val icon: Drawable?,
     val name: String
 ) : CategoryModel() {
-    override val categoryModelNam: String
+    override val categoryModelName: String
         get() = this.name
     override val coverImage: Drawable
         get() = this.icon!! // lehet hogy nem kell ne adjon vissza semmit

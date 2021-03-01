@@ -9,7 +9,7 @@ class Sight(
     val mainImage: Drawable,
     val images: List<Drawable>?
 ) : CategoryModel() {
-    override val categoryModelNam: String
+    override val categoryModelName: String
         get() = this.name
     override val coverImage: Drawable
         get() = this.mainImage

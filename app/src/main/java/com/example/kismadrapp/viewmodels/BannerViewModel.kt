@@ -1,37 +1,15 @@
 package com.example.kismadrapp.viewmodels
 
-import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
-import com.example.kismadrapp.utils.getTowns
-import com.example.kismadrapp.utils.listOfEvents
 import com.example.kismadrapp.models.Event
 import com.example.kismadrapp.models.ImageColors
-import kotlin.random.Random
 
-class BannerViewModel(resources: Resources) : ViewModel() {
-    private val viewModelResources = resources
-
-    fun getRandomTownImage(): Drawable {
-        val random = Random.nextInt(0, getTowns(viewModelResources).size)
-        val town = getTowns(viewModelResources)[random]
-        return getRandomImage(town.images)
-    }
-
-    fun getRandomEvent(): Drawable {
-        val list = listOfEvents(viewModelResources)
-        val random = Random.nextInt(0, list.size)
-        return list[random]
-    }
-
-    private fun getRandomImage(imageList: List<Drawable>): Drawable {
-        val random = Random.nextInt(0, imageList.size)
-        return imageList[random]
-    }
+class BannerViewModel() : ViewModel() {
 
     fun getColorsOfImage(drawable: Drawable?): ImageColors {
         val drawableBitmap = drawable!!.toBitmap()
