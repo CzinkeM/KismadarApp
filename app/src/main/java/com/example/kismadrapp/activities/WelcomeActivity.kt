@@ -201,6 +201,7 @@ class WelcomeActivity : AppCompatActivity() {
                 if (result.contents == null) {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
+                    // TODO: 2021. 03. 01. Custom function to navigate to Model Detail Pages
                     Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
                 }
             } else {
