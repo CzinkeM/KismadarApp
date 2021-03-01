@@ -50,6 +50,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:text="@{trip.name}"
                 tools:text="Kedvenc helyeim"
                 android:textColor="@color/lightBlue"
                 android:background="@color/MidLightBlue"

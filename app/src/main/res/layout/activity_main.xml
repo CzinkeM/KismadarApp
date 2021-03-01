@@ -41,9 +41,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         app:menu="@menu/bottomnav_menu"
-        android:background="@color/darkBlueGrey"
-        app:itemIconTint="@color/lightBlue"
-        app:itemTextColor="@color/lightBlue"
+        android:background="@color/lightBlue"
+        app:itemIconTint="@color/darkBlueGrey"
+        app:itemTextColor="@color/darkBlueGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

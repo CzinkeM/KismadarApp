@@ -1,37 +1,39 @@
 package com.example.kismadrapp.activities
 
+import android.app.Activity
 import android.app.Dialog
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kismadrapp.R
-import com.example.kismadrapp.fragments.WelcomePageFragmentDirections
 import com.example.kismadrapp.models.Weather
 import com.example.kismadrapp.utils.openEmail
 import com.example.kismadrapp.utils.openFacebook
 import com.example.kismadrapp.utils.openWebsite
 import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
+import com.google.zxing.integration.android.IntentIntegrator
 import org.json.JSONObject
 import java.net.URL
+
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -63,6 +65,18 @@ class WelcomeActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragment)
         bottomNavigation.setupWithNavController(navController)
         navigationView.setupWithNavController(navController)
+        val bottomNavigationQRCodeButton = findViewById<BottomNavigationItemView>(R.id.bottomNavQr)
+        val bottomNavigationOpenDrawerButton = findViewById<BottomNavigationItemView>(R.id.bottomNavSettings)
+        bottomNavigationQRCodeButton.setOnClickListener {
+            val scanner = IntentIntegrator(this)
+            scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES)
+            scanner.setBeepEnabled(false)
+            scanner.initiateScan()
+        }
+        bottomNavigationOpenDrawerButton.setOnClickListener {
+            bottomNavigation[0].isActivated
+            this.openDrawer()
+        }
     }
 
     fun openDrawer() {
@@ -123,11 +137,11 @@ class WelcomeActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.menuContactEmail -> {
-                    startActivity(openEmail(getString(R.string.emailAddress),"Applikáció"))
+                    startActivity(openEmail(getString(R.string.emailAddress), "Applikáció"))
                     true
                 }
                 R.id.menuContactFacebook -> {
-                    startActivity(openFacebook(packageManager,getString(R.string.facebookUrl)))
+                    startActivity(openFacebook(packageManager, getString(R.string.facebookUrl)))
                     true
                 }
                 R.id.menuContactWebsite -> {
@@ -143,7 +157,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
-    inner class WeatherTask: AsyncTask<String,Void,String>(){
+    inner class WeatherTask: AsyncTask<String, Void, String>(){
         override fun onPreExecute() {
             super.onPreExecute()
         }
@@ -153,12 +167,12 @@ class WelcomeActivity : AppCompatActivity() {
             try {
                 response = URL("https://api.openweathermap.org/data/2.5/weather?q=noszvaj&appid=dd3227b3492522fd76affb3c83e672f6&units=metric&lang=hu")
                     .readText(Charsets.UTF_8)
-                Log.i("weather","Api call success")
-                Log.i("weather",response)
+                Log.i("weather", "Api call success")
+                Log.i("weather", response)
 
             }catch (e: Exception){
                 response = null
-                Log.i("weather","Api call failed: ${e.message}")
+                Log.i("weather", "Api call failed: ${e.message}")
             }
             return  response
         }
@@ -169,13 +183,28 @@ class WelcomeActivity : AppCompatActivity() {
                 val jsonObject = JSONObject(result)
                 val main = jsonObject.getJSONObject("main")
                 val status = jsonObject.getJSONArray("weather").getJSONObject(0)
-                Log.i("weather","Act temp: ${main.getString("temp")}")
+                Log.i("weather", "Act temp: ${main.getString("temp")}")
                 val weather = Weather(main.getString("temp"), status.getString("main"))
                 _weather.value = weather
                 //weatherStatus = weather.getString("main")
 
             } catch (e: Exception) {
 
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+            if (result != null) {
+                if (result.contents == null) {
+                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
             }
         }
     }

@@ -11,12 +11,12 @@
         android:title="Home"
         />
     <item
-        android:id="@+id/QRScanFragment"
-        android:icon="@drawable/ic_qr_code"
-        android:title="Scan QR"/>
-    <item
         android:id="@+id/myTripsFragment"
         android:icon="@drawable/ic_map"
         android:title="Túráim"
         />
+    <item
+        android:id="@+id/bottomNavQr"
+        android:icon="@drawable/ic_qr_code"
+        android:title="Scan QR"/>
 </menu>
