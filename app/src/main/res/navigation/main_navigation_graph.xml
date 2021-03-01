@@ -42,6 +42,12 @@
         <action
             android:id="@+id/welcomePageFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/welcomePageFragment_to_QRScanFragment"
+            app:destination="@id/QRScanFragment" />
+        <action
+            android:id="@+id/welcomePageFragment_to_myTripsFragment"
+            app:destination="@id/myTripsFragment" />
     </fragment>
     <fragment
         android:id="@+id/natureDetailsFragment"
@@ -127,5 +133,23 @@
         <argument
             android:name="categoryName"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/QRScanFragment"
+        android:name="com.example.kismadrapp.fragments.QRScanFragment"
+        android:label="fragment_qr_scan"
+        tools:layout="@layout/fragment_qr_scan" >
+        <action
+            android:id="@+id/QRScanFragment_to_welcomePageFragment"
+            app:destination="@id/welcomePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myTripsFragment"
+        android:name="com.example.kismadrapp.fragments.MyTripsFragment"
+        android:label="fragment_my_trips"
+        tools:layout="@layout/fragment_my_trips" >
+        <action
+            android:id="@+id/myTripsFragment_to_welcomePageFragment"
+            app:destination="@id/welcomePageFragment" />
     </fragment>
 </navigation>

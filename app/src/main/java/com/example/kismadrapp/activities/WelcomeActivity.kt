@@ -62,6 +62,7 @@ class WelcomeActivity : AppCompatActivity() {
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment)
         bottomNavigation.setupWithNavController(navController)
+        navigationView.setupWithNavController(navController)
     }
 
     fun openDrawer() {
