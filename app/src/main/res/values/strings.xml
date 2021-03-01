@@ -40,5 +40,4 @@
     <string name="emailAddress" translatable="false">czinke.marton@gmail.com</string>
     <string name="facebookUrl" translatable="false">https://www.facebook.com/marton.czinke/</string>
     <string name="websiteUrl" translatable="false">http://noszvaj.hu/</string>
-    <string name="apiOpenWeather" translatable="false">dd3227b3492522fd76affb3c83e672f6</string>
 </resources>
