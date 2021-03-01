@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Kategóriák">
-        <menu>
-            <item
-                android:id="@+id/menuItemGoToRestaurants"
-                android:icon="@drawable/ic_restaurant"
-                android:title="@string/category_food_drink" />
-            <item
-                android:id="@+id/menuItemGoToNatureSights"
-                android:icon="@drawable/ic_tree"
-                android:title="@string/category_nature" />
-            <item
-                android:id="@+id/menuItemGoToServices"
-                android:icon="@drawable/ic_gear"
-                android:title="@string/category_services" />
-            <item
-                android:id="@+id/menuItemGoToShops"
-                android:icon="@drawable/ic_shop"
-                android:title="@string/category_shops" />
-            <item
-                android:id="@+id/menuItemGoToSights"
-                android:icon="@drawable/ic_building"
-                android:title="@string/category_sights" />
-            <item
-                android:id="@+id/menuItemGotoTowns"
-                android:icon="@drawable/ic_map"
-                android:title="@string/category_surroundings" />
-        </menu>
-    </item>
     <item android:title="Contact Us">
         <menu>
             <item
