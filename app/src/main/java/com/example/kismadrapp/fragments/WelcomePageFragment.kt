@@ -130,9 +130,9 @@ class WelcomePageFragment : Fragment() {
             act.openDrawer()
         }
         val activity = activity as WelcomeActivity
-        activity.temperature.observe(viewLifecycleOwner, Observer {
-            binding.weatherFragment.weather = Weather("$it°C", "cloudy")
-            Log.i("weather","temperature: ${it}")
+        activity.weather.observe(viewLifecycleOwner, Observer {
+            binding.weatherFragment.weather = it
+            Log.i("weather","temperature: ${it.temp}, status: ${it.weatherStatus}")
         })
 
 

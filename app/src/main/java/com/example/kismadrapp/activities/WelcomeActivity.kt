@@ -21,6 +21,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kismadrapp.R
 import com.example.kismadrapp.fragments.WelcomePageFragmentDirections
+import com.example.kismadrapp.models.Weather
 import com.example.kismadrapp.utils.openEmail
 import com.example.kismadrapp.utils.openFacebook
 import com.example.kismadrapp.utils.openWebsite
@@ -37,16 +38,15 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var viewModel: WelcomeActivityViewModel
     lateinit var navigationView: NavigationView
     private lateinit var dialog: Dialog
-    private var _temperature = MutableLiveData<String>()
-    val temperature: LiveData<String>
-        get() = _temperature
-    lateinit var weatherStatus: String
+
+    private var _weather = MutableLiveData<Weather>()
+    val weather: LiveData<Weather>
+        get() = _weather
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_KismadárApp)
         setContentView(R.layout.activity_main)
-        weatherStatus = ""
         WeatherTask().execute()
         viewModel = ViewModelProvider(this).get(WelcomeActivityViewModel::class.java)
         drawerLayout = findViewById(R.id.drawerLayout)
@@ -150,7 +150,7 @@ class WelcomeActivity : AppCompatActivity() {
         override fun doInBackground(vararg params: String?): String? {
             var response: String?
             try {
-                response = URL("https://api.openweathermap.org/data/2.5/weather?q=noszvaj&appid=dd3227b3492522fd76affb3c83e672f6&units=metric")
+                response = URL("https://api.openweathermap.org/data/2.5/weather?q=noszvaj&appid=dd3227b3492522fd76affb3c83e672f6&units=metric&lang=hu")
                     .readText(Charsets.UTF_8)
                 Log.i("weather","Api call success")
                 Log.i("weather",response)
@@ -167,9 +167,10 @@ class WelcomeActivity : AppCompatActivity() {
             try {
                 val jsonObject = JSONObject(result)
                 val main = jsonObject.getJSONObject("main")
-                //val weather = jsonObject.getJSONObject("weather")
+                val status = jsonObject.getJSONArray("weather").getJSONObject(0)
                 Log.i("weather","Act temp: ${main.getString("temp")}")
-                _temperature.value = main.getString("temp")
+                val weather = Weather(main.getString("temp"), status.getString("main"))
+                _weather.value = weather
                 //weatherStatus = weather.getString("main")
 
             } catch (e: Exception) {
