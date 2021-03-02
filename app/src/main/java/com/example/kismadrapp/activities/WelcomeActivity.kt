@@ -18,10 +18,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.kismadrapp.R
+import com.example.kismadrapp.models.ContactManager
 import com.example.kismadrapp.models.Weather
-import com.example.kismadrapp.utils.openEmail
-import com.example.kismadrapp.utils.openFacebook
-import com.example.kismadrapp.utils.openWebsite
 import com.example.kismadrapp.viewmodels.WelcomeActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -82,15 +80,15 @@ class WelcomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menuContactEmail -> {
-                    startActivity(openEmail(getString(R.string.emailAddress), "Applikáció"))
+                    ContactManager(this).contactViaEmail()
                     true
                 }
                 R.id.menuContactFacebook -> {
-                    startActivity(openFacebook(packageManager, getString(R.string.facebookUrl)))
+                    ContactManager(this).contactViaFacebook()
                     true
                 }
                 R.id.menuContactWebsite -> {
-                    startActivity(openWebsite(getString(R.string.websiteUrl)),null)
+                    ContactManager(this).contactViaWebsite()
                     true
                 }
                 else -> true

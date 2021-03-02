@@ -4,4 +4,6 @@ import android.graphics.drawable.Drawable
 
 abstract class Category(val name: String, val cover: Drawable) {
     abstract val type: CategoryType
+
+     abstract fun getAll(): Collection<Category>
 }

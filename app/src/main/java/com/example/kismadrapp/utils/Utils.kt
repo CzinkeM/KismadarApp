@@ -1,17 +1,10 @@
 package com.example.kismadrapp.utils
 
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import androidx.core.content.res.ResourcesCompat
 import com.example.kismadrapp.R
 import com.example.kismadrapp.models.*
-import kotlin.random.Random
-
-enum class NatureType { LAKE, VIEWPOINT, SPRING, OTHER }
-enum class Pricing { CHEAP, MODERATE, EXPENSIVE, VEXPENSIVE }
 
 fun getTowns(res: Resources): List<Town> {
     val bogacsName = res.getString(R.string.town_name_bogacs)
@@ -98,7 +91,7 @@ private fun getTownDrawables(res: Resources, townName: String): Drawable {
 
 fun getNatureSights(res: Resources): ArrayList<NatureSight>{
     val testNatureSight = NatureSight("Példa Forrás",
-        NatureType.SPRING,res.getString(R.string.loremipsum),ResourcesCompat.getDrawable(res,
+        NatureSightType.SPRING,res.getString(R.string.loremipsum),ResourcesCompat.getDrawable(res,
             R.drawable.vector_hiking,null)!!)
     return arrayListOf(testNatureSight)
 }
@@ -124,25 +117,4 @@ fun getSights(res: Resources): ArrayList<Sight>{
     val testSight = Sight("Példa Sight",res.getString(R.string.loremipsum),true,ResourcesCompat.getDrawable(res,
         R.drawable.vector_sight,null)!!)
     return arrayListOf(testSight)
-}
-fun openFacebook(packageManager: PackageManager,url: String): Intent{
-    var uri = Uri.parse(url)
-    val facebookAppName = "com.facebook.katana"
-    try {
-        val applicationInfo = packageManager.getApplicationInfo(facebookAppName,0)
-        if(applicationInfo.enabled){
-            uri = Uri.parse("fb://facewebmodal/f?href=$url")
-        }
-    }catch (e: PackageManager.NameNotFoundException){}
-    return Intent(Intent.ACTION_VIEW,uri)
-}
-fun openWebsite(url: String): Intent{
-    return Intent(Intent.ACTION_VIEW, Uri.parse(url))
-}
-fun openEmail(address: String,subject: String):Intent{
-    val intent = Intent(Intent.ACTION_SENDTO)
-    intent.type = "text/plain"
-    intent.data = Uri.parse("mailto:$address")
-    intent.putExtra(Intent.EXTRA_SUBJECT,subject)
-    return intent
 }

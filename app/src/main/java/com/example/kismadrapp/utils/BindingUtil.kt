@@ -20,7 +20,7 @@ fun TextView.setPricingText(item: FoodAndDrink) {
 @BindingAdapter("natureIcon")
 fun ImageView.setIcon(item: NatureSight) {
     setImageResource(
-        when (item.natureType) {
+        when (item.natureSightType) {
             NatureType.OTHER -> R.drawable.ic_tree
             NatureType.SPRING -> R.drawable.ic_building
             NatureType.VIEWPOINT -> R.drawable.ic_map
