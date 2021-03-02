@@ -3,17 +3,11 @@ package com.example.kismadrapp.models
 import android.graphics.drawable.Drawable
 
 class Town(
-    val name: String,
-    val description: String,
-    val distance: Double,
-    val sights: List<Sight>,
-    val images: List<Drawable>
-) : CategoryModel() {
-    override val categoryModelName: String
-        get() = this.name
-    override val coverImage: Drawable
-        get() = this.images[0]
-    override val imageList: List<Drawable>?
-        get() = images
-
+    val townName: String,
+    val townDescription: String,
+    val townSight: List<Sight>,
+    val townCoverImage: Drawable
+) : Category(townName, townCoverImage) {
+    override val type: CategoryType
+        get() = CategoryType.Town
 }

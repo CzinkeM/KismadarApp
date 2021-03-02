@@ -7,7 +7,7 @@
 
         <variable
             name="nature"
-            type="com.example.kismadrapp.models.Nature" />
+            type="com.example.kismadrapp.models.NatureSight" />
     </data>
 
     <LinearLayout

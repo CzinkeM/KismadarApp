@@ -3,14 +3,12 @@ package com.example.kismadrapp.utils.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kismadrapp.databinding.ItemCategoryBinding
 import com.example.kismadrapp.databinding.ItemCategoryVerticalBinding
 import com.example.kismadrapp.models.Category
-import com.example.kismadrapp.models.CategoryModel
 
 class CategoryVerticalAdapter(
     private val clickListener: CategoryClickListener,
-    private val values: List<CategoryModel>
+    private val values: List<Category>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -29,7 +27,7 @@ class CategoryVerticalAdapter(
     class ViewHolder private constructor(private val binding: ItemCategoryVerticalBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CategoryModel, clickListener: CategoryClickListener) {
+        fun bind(item: Category, clickListener: CategoryClickListener) {
             binding.category = item
             binding.categoryClickListener = clickListener
             binding.executePendingBindings()

@@ -7,7 +7,7 @@
 
         <variable
             name="restaurant"
-            type="com.example.kismadrapp.models.Restaurant" />
+            type="com.example.kismadrapp.models.FoodAndDrink" />
     </data>
 
     <LinearLayout

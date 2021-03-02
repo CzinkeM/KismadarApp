@@ -28,7 +28,7 @@ class CategoryLayoutRecyclerAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Category, clickListener: CategoryLayoutClickListener) {
-            binding.category = item
+            binding.category = item.type
             binding.categoryClickListener = clickListener
             binding.executePendingBindings()
         }

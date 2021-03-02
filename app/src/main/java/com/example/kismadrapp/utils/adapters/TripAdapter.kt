@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.ItemCategoryBinding
 import com.example.kismadrapp.databinding.ItemCategoryTownBinding
 import com.example.kismadrapp.databinding.ItemTripBinding
-import com.example.kismadrapp.models.CategoryModel
 import com.example.kismadrapp.models.Trip
 
 class TripAdapter(

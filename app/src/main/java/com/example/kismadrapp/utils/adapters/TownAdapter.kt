@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.databinding.ItemCategoryTownBinding
-import com.example.kismadrapp.models.CategoryModel
+import com.example.kismadrapp.models.Category
 
 class TownAdapter(
     private val clickListener: CategoryClickListener,
-    private val values: List<CategoryModel>
+    private val values: List<Category>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -27,7 +27,7 @@ class TownAdapter(
     class ViewHolder private constructor(private val binding: ItemCategoryTownBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CategoryModel, clickListener: CategoryClickListener) {
+        fun bind(item: Category, clickListener: CategoryClickListener) {
             binding.category = item
             binding.clickListener = clickListener
             binding.executePendingBindings()

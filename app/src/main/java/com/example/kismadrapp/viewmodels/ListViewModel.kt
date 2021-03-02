@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kismadrapp.*
+import com.example.kismadrapp.models.CategoryType
 import com.example.kismadrapp.utils.*
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
 import com.example.kismadrapp.utils.adapters.CategoryVerticalAdapter
@@ -17,32 +18,32 @@ class ListViewModel(context: Context) : ViewModel() {
     fun setAdapter(categoryName: String): RecyclerView.Adapter<RecyclerView.ViewHolder> {
         val adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
         when (categoryName) {
-            viewModelContext.getString(R.string.category_food_drink) -> adapter = CategoryVerticalAdapter(
+            CategoryType.FoodAndDrink.name -> adapter = CategoryVerticalAdapter(
                 CategoryClickListener {
 
             }, getRestaurants(viewModelContext.resources)
             )
-            viewModelContext.getString(R.string.category_nature) -> adapter = CategoryVerticalAdapter(
+            CategoryType.NatureSight.name-> adapter = CategoryVerticalAdapter(
                 CategoryClickListener {
 
                 }, getNatureSights(viewModelContext.resources)
             )
-            viewModelContext.getString(R.string.category_surroundings) -> adapter = CategoryVerticalAdapter(
+            CategoryType.Town.name -> adapter = CategoryVerticalAdapter(
                 CategoryClickListener {
 
                 }, getTowns(viewModelContext.resources)
             )
-            viewModelContext.getString(R.string.category_shops) -> adapter = CategoryVerticalAdapter(
+            CategoryType.Shop.name -> adapter = CategoryVerticalAdapter(
                 CategoryClickListener {
 
                 }, getShops(viewModelContext.resources)
             )
-            viewModelContext.getString(R.string.category_services) -> adapter = CategoryVerticalAdapter(
+            CategoryType.Service.name -> adapter = CategoryVerticalAdapter(
                 CategoryClickListener {
 
                 }, getServices(viewModelContext.resources)
             )
-            viewModelContext.getString(R.string.category_sights) -> adapter = CategoryVerticalAdapter(
+            CategoryType.Sight.name -> adapter = CategoryVerticalAdapter(
                 CategoryClickListener {
 
                 }, getSights(viewModelContext.resources)

@@ -9,11 +9,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentMyTripsBinding
-import com.example.kismadrapp.models.CategoryModel
 import com.example.kismadrapp.models.Trip
 import com.example.kismadrapp.utils.adapters.TripAdapter
 import com.example.kismadrapp.utils.adapters.TripClickListener
-import com.example.kismadrapp.utils.getNatureSights
 
 class MyTripsFragment : Fragment() {
     override fun onCreateView(

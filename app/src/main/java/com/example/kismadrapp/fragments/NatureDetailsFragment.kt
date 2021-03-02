@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.kismadrapp.utils.NatureType
 import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.FragmentDetailsNatureBinding
-import com.example.kismadrapp.models.Nature
+import com.example.kismadrapp.models.NatureSight
 
 class NatureDetailsFragment : Fragment() {
     private val args: NatureDetailsFragmentArgs by navArgs()
@@ -29,15 +29,15 @@ class NatureDetailsFragment : Fragment() {
         return binding.root
     }
 
-    private fun getNatureObject(string: String): Nature {
+    private fun getNatureObject(string: String): NatureSight {
         val imgNature = ResourcesCompat.getDrawable(context!!.resources, R.drawable.vector_hiking, null)!!
-        val gottenNature = Nature(
+        val gottenNature = NatureSight(
             "Test ViewPoint",
-            NatureType.VIEWPOINT, "Ez egy leírás", imgNature, null
+            NatureType.VIEWPOINT, "Ez egy leírás", imgNature
         )
-        val defaultNature = Nature(
+        val defaultNature = NatureSight(
             "Default ViewPoint",
-            NatureType.VIEWPOINT, getString(R.string.loremipsum), imgNature, null
+            NatureType.VIEWPOINT, getString(R.string.loremipsum), imgNature
         )
         return when (string) {
             "Test ViewPoint" -> gottenNature
