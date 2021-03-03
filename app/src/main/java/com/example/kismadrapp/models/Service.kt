@@ -9,4 +9,8 @@ class Service(
 ) : Category(serviceName,serviceCoverImage) {
     override val type: CategoryType
         get() = CategoryType.Service
+
+    override fun getAll(): Collection<Category> {
+        TODO("Not yet implemented")
+    }
 }

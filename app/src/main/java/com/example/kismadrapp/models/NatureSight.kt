@@ -10,4 +10,8 @@ class NatureSight(
 ) : Category(natureName,natureCoverImage) {
     override val type: CategoryType
         get() = CategoryType.NatureSight
+
+    override fun getAll(): Collection<Category> {
+        TODO("Not yet implemented")
+    }
 }

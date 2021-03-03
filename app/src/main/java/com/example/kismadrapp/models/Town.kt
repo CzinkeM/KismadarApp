@@ -10,4 +10,8 @@ class Town(
 ) : Category(townName, townCoverImage) {
     override val type: CategoryType
         get() = CategoryType.Town
+
+    override fun getAll(): Collection<Category> {
+        TODO("Not yet implemented")
+    }
 }

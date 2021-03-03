@@ -10,4 +10,8 @@ data class Sight(
 ) : Category(sightName,sightCoverImage) {
     override val type: CategoryType
         get() = CategoryType.Sight
+
+    override fun getAll(): Collection<Category> {
+        TODO("Not yet implemented")
+    }
 }

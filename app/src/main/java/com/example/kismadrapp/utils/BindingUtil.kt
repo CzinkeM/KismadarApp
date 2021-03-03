@@ -6,6 +6,8 @@ import androidx.databinding.BindingAdapter
 import com.example.kismadrapp.R
 import com.example.kismadrapp.models.NatureSight
 import com.example.kismadrapp.models.FoodAndDrink
+import com.example.kismadrapp.models.NatureSightType
+import com.example.kismadrapp.models.Pricing
 
 @BindingAdapter("PricingText")
 fun TextView.setPricingText(item: FoodAndDrink) {
@@ -13,7 +15,7 @@ fun TextView.setPricingText(item: FoodAndDrink) {
         Pricing.CHEAP -> "$"
         Pricing.MODERATE -> "$$"
         Pricing.EXPENSIVE -> "$$$"
-        Pricing.VEXPENSIVE -> "$$$$"
+        Pricing.VERY_EXPENSIVE -> "$$$$"
     }
 }
 
@@ -21,10 +23,10 @@ fun TextView.setPricingText(item: FoodAndDrink) {
 fun ImageView.setIcon(item: NatureSight) {
     setImageResource(
         when (item.natureSightType) {
-            NatureType.OTHER -> R.drawable.ic_tree
-            NatureType.SPRING -> R.drawable.ic_building
-            NatureType.VIEWPOINT -> R.drawable.ic_map
-            NatureType.LAKE -> R.drawable.ic_baseline_cloud_24
+            NatureSightType.OTHER -> R.drawable.ic_tree
+            NatureSightType.SPRING -> R.drawable.ic_building
+            NatureSightType.VIEWPOINT -> R.drawable.ic_map
+            NatureSightType.LAKE -> R.drawable.ic_baseline_cloud_24
         }
     )
 }

@@ -1,7 +1,6 @@
 package com.example.kismadrapp.models
 
 import android.graphics.drawable.Drawable
-import com.example.kismadrapp.utils.Pricing
 
 class FoodAndDrink(
     val fadName: String,
@@ -11,4 +10,8 @@ class FoodAndDrink(
 ) : Category(fadName,fadCoverImage) {
     override val type: CategoryType
         get() = CategoryType.FoodAndDrink
+
+    override fun getAll(): Collection<Category> {
+        TODO("Not yet implemented")
+    }
 }
