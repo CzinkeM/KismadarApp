@@ -17,6 +17,7 @@ import com.example.kismadrapp.activities.WelcomeActivity
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
 import com.example.kismadrapp.models.NatureSight
 import com.example.kismadrapp.models.Sight
+import com.example.kismadrapp.models.Trip
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
 import com.example.kismadrapp.utils.viewmodelfactories.WelcomePageViewModelFactory
@@ -34,6 +35,7 @@ class WelcomePageFragment : Fragment() {
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
+
         viewModel.setupRecyclerView(context!!,binding.natureRecyclerView, NatureSight())
         viewModel.setupRecyclerView(context!!,binding.sightRecyclerView, Sight())
         viewModel.setupRecyclerView(context!!,binding.restaurantRecyclerView, Sight())

@@ -11,10 +11,14 @@ import com.example.kismadrapp.models.NatureSight
 import com.example.kismadrapp.models.Sight
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
+import com.example.kismadrapp.utils.clicklisteners.TextClickListener
 
 class WelcomePageViewModel(context: Context) : ViewModel() {
     fun setupRecyclerView(context: Context,layoutCategoryBinding: LayoutCategoryBinding, natureSight: NatureSight){
         layoutCategoryBinding.category = natureSight.getCategory(context)
+        layoutCategoryBinding.categoryClickListener = TextClickListener {
+            Toast.makeText(context,"Navigate to ${natureSight.getCategory(context)} list", Toast.LENGTH_SHORT).show()
+        }
         layoutCategoryBinding.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         layoutCategoryBinding.categoryRecyclerView.adapter = CategoryAdapter(
@@ -26,6 +30,9 @@ class WelcomePageViewModel(context: Context) : ViewModel() {
     }
     fun setupRecyclerView(context: Context,layoutCategoryBinding: LayoutCategoryBinding, sight: Sight){
         layoutCategoryBinding.category = sight.getCategory(context)
+        layoutCategoryBinding.categoryClickListener = TextClickListener {
+            Toast.makeText(context,"Navigate to ${sight.getCategory(context)} list", Toast.LENGTH_SHORT).show()
+        }
         layoutCategoryBinding.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         layoutCategoryBinding.categoryRecyclerView.adapter = CategoryAdapter(

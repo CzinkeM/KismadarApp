@@ -3,9 +3,7 @@ package com.example.kismadrapp.models
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.example.kismadrapp.R
-import java.util.*
 import kotlin.collections.ArrayList
 
 class NatureSight() : Location(null,null) {
@@ -46,5 +44,4 @@ class NatureSight() : Location(null,null) {
     override fun getCategory(context: Context): String{
         return context.getString(R.string.category_nature)
     }
-
 }
