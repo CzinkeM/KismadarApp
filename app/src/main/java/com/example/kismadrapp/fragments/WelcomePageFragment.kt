@@ -39,19 +39,15 @@ class WelcomePageFragment : Fragment() {
         binding.natureRecyclerView.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        binding.natureRecyclerView.category = getCategoryNatureSight(resources)
-
-        binding.natureRecyclerView.categoryHeader.setOnClickListener {
-            findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                getCategoryNatureSight(resources).name))
-        }
-
+        /*
         binding.natureRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelName, Toast.LENGTH_SHORT).show()
                 //ide kell a sheet megnyitás
             }, getNatureSights(resources)
         )
+
+         */
         val activity = activity as WelcomeActivity
         activity.weather.observe(viewLifecycleOwner, Observer {
             binding.weatherFragment.weather = it
