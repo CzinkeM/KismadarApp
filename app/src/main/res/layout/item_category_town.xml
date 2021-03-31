@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="category"
-            type="com.example.kismadrapp.models.CategoryModel" />
+            name="location"
+            type="com.example.kismadrapp.models.Location" />
 
         <variable
             name="clickListener"
@@ -21,7 +21,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/vibrantTransparent20"
-        android:onClick="@{()->clickListener.onClick(category)}"
+        android:onClick="@{()->clickListener.onClick(location)}"
         app:cardCornerRadius="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@{category.coverImage}"
+                android:src="@{location.locationImage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:gravity="center"
-                android:text="@{category.categoryModelName}"
+                android:text="@{location.locationName}"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"

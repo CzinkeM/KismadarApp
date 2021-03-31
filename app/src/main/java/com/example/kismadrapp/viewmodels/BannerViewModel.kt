@@ -33,8 +33,5 @@ class BannerViewModel() : ViewModel() {
     }
 
     private fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
-    fun getRecentEvent(): Event {
-        return Event("Valentin nap", "2020.02.07")
-    }
 
 }

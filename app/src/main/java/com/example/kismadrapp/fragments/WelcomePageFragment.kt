@@ -11,15 +11,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kismadrapp.*
 import com.example.kismadrapp.activities.WelcomeActivity
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
-import com.example.kismadrapp.utils.*
+import com.example.kismadrapp.models.NatureSight
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
-import com.example.kismadrapp.utils.adapters.TownAdapter
 import com.example.kismadrapp.utils.viewmodelfactories.WelcomePageViewModelFactory
 import com.example.kismadrapp.viewmodels.WelcomePageViewModel
 
@@ -36,18 +34,16 @@ class WelcomePageFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
 
+        binding.natureRecyclerView.category = NatureSight().getCategory(context!!)
         binding.natureRecyclerView.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        /*
         binding.natureRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
-                Toast.makeText(context, it.categoryModelName, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, it.locationName, Toast.LENGTH_SHORT).show()
                 //ide kell a sheet megnyitás
-            }, getNatureSights(resources)
+            }, NatureSight().getAll(context!!)
         )
-
-         */
         val activity = activity as WelcomeActivity
         activity.weather.observe(viewLifecycleOwner, Observer {
             binding.weatherFragment.weather = it

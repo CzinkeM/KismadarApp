@@ -8,7 +8,7 @@
 
         <variable
             name="category"
-            type="com.example.kismadrapp.models.Location" />
+            type="String" />
 
         <variable
             name="categoryClickListener"
@@ -30,7 +30,7 @@
                 android:id="@+id/materialTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{category.locationName}"
+                android:text="@{category.toString}"
                 android:textColor="@color/lightBlue"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_category"
+            tools:listitem="@layout/item_location"
             tools:orientation="horizontal" />
     </LinearLayout>
 </layout>

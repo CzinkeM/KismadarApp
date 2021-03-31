@@ -3,12 +3,12 @@ package com.example.kismadrapp.utils.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kismadrapp.databinding.ItemCategoryBinding
-import com.example.kismadrapp.models.CategoryModel
+import com.example.kismadrapp.databinding.ItemLocationBinding
+import com.example.kismadrapp.models.Location
 
 class CategoryAdapter(
     private val clickListener: CategoryClickListener,
-    private val values: List<CategoryModel>
+    private val values: List<Location>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -24,10 +24,10 @@ class CategoryAdapter(
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(private val binding: ItemCategoryBinding) :
+    class ViewHolder private constructor(private val binding: ItemLocationBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CategoryModel, clickListener: CategoryClickListener) {
+        fun bind(item: Location, clickListener: CategoryClickListener) {
             binding.category = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
@@ -36,7 +36,7 @@ class CategoryAdapter(
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemCategoryBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemLocationBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -47,6 +47,6 @@ class CategoryAdapter(
     }
 }
 
-class CategoryClickListener(val clickListener: (id: CategoryModel) -> Unit) {
-    fun onClick(category: CategoryModel) = clickListener(category)
+class CategoryClickListener(val clickListener: (id: Location) -> Unit) {
+    fun onClick(location: Location) = clickListener(location)
 }
