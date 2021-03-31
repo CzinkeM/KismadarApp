@@ -4,7 +4,6 @@ import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import com.example.kismadrapp.utils.getCategories
 import com.example.kismadrapp.models.Category
-import com.example.kismadrapp.models.Town
 
 class WelcomePageViewModel(resources: Resources) : ViewModel() {
     private val res = resources

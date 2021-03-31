@@ -35,94 +35,23 @@ class WelcomePageFragment : Fragment() {
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
-        binding.restaurantRecyclerView.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.serviceRecyclerView.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.shopRecyclerView.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.sightRecyclerView.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
         binding.natureRecyclerView.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.townRecyclerView.categoryRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         binding.natureRecyclerView.category = getCategoryNatureSight(resources)
-        binding.sightRecyclerView.category = getCategorySight(resources)
-        binding.serviceRecyclerView.category = getCategoryServices(resources)
-        binding.restaurantRecyclerView.category = getCategoryFood(resources)
-        binding.shopRecyclerView.category = getCategoryShop(resources)
-        binding.townRecyclerView.category = getCategoryTowns(resources)
 
         binding.natureRecyclerView.categoryHeader.setOnClickListener {
             findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
                 getCategoryNatureSight(resources).name))
         }
-        binding.sightRecyclerView.categoryHeader.setOnClickListener {
-            findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                getCategorySight(resources).name)
-            )
-        }
-        binding.serviceRecyclerView.categoryHeader.setOnClickListener {
-            findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                getCategoryServices(resources).name))
-        }
-        binding.restaurantRecyclerView.categoryHeader.setOnClickListener {
-            findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                getCategoryFood(resources).name))
-        }
-        binding.shopRecyclerView.categoryHeader.setOnClickListener {
-            findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                getCategoryShop(resources).name))
-        }
-        binding.townRecyclerView.categoryHeader.setOnClickListener {
-            findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                getCategoryTowns(resources).name))
-        }
 
-
-        binding.restaurantRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
-            CategoryClickListener {
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToRestaurantDetailFragment(it.categoryModelName))
-            }, getRestaurants(resources)
-        )
-        binding.serviceRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
-            CategoryClickListener {
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToServiceDetailFragment(it.categoryModelName))
-            }, getServices(resources)
-        )
-        binding.shopRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
-            CategoryClickListener {
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToShopDetailFragment(it.categoryModelName))
-            }, getShops(resources)
-        )
-        binding.sightRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
-            CategoryClickListener {
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToSightDetailFragment(it.categoryModelName))
-            }, getSights(resources)
-        )
         binding.natureRecyclerView.categoryRecyclerView.adapter = CategoryAdapter(
             CategoryClickListener {
                 Toast.makeText(context, it.categoryModelName, Toast.LENGTH_SHORT).show()
-                findNavController().navigate(
-                    WelcomePageFragmentDirections.welcomePageFragmentToNatureDetailsFragment(
-                        it.categoryModelName
-                    )
-                )
+                //ide kell a sheet megnyitás
             }, getNatureSights(resources)
         )
-        binding.townRecyclerView.categoryRecyclerView.adapter = TownAdapter(
-            CategoryClickListener {
-                findNavController().navigate(WelcomePageFragmentDirections.welcomePageFragmentToTownDetailFragment(it.categoryModelName))
-            }, getTowns(resources)
-        )
-
-        binding.viewFlipper.isAutoStart = true
-        binding.drawerButton.setOnClickListener {
-            val act = activity as WelcomeActivity
-            act.openDrawer()
-        }
         val activity = activity as WelcomeActivity
         activity.weather.observe(viewLifecycleOwner, Observer {
             binding.weatherFragment.weather = it
@@ -133,13 +62,5 @@ class WelcomePageFragment : Fragment() {
         })
 
         return binding.root
-    }
-
-    fun chooseCategory(id: String) {
-        findNavController().navigate(
-            WelcomePageFragmentDirections.welcomePageFragmentToListFragment(
-                id
-            )
-        )
     }
 }

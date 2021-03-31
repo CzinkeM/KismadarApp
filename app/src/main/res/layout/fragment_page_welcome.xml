@@ -31,7 +31,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="350dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -57,22 +57,6 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0" />
 
-                    <ImageButton
-                        android:id="@+id/drawerButton"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="16dp"
-                        android:backgroundTint="@color/vibrantBlueGreen"
-                        android:gravity="center"
-                        android:src="@drawable/ic_menu"
-                        android:textAlignment="center"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
                     <include
                         android:id="@+id/weatherFragment"
                         layout="@layout/layout_weather"
@@ -84,33 +68,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0" />
-
-                    <ViewFlipper
-                        android:id="@+id/viewFlipper"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_marginHorizontal="16dp"
-                        android:inAnimation="@android:anim/slide_in_left"
-                        android:outAnimation="@android:anim/slide_out_right"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
-                        app:layout_constraintVertical_bias="0.0"
-                        tools:background="@color/white">
-
-                        <androidx.fragment.app.FragmentContainerView
-                            android:id="@+id/fragmentEvent"
-                            android:name="com.example.kismadrapp.fragments.BannerEventFragment"
-                            android:layout_width="match_parent"
-                            android:layout_height="150dp" />
-
-                        <androidx.fragment.app.FragmentContainerView
-                            android:id="@+id/fragmentDiscover"
-                            android:name="com.example.kismadrapp.fragments.BannerDiscoverFragment"
-                            android:layout_width="match_parent"
-                            android:layout_height="150dp" />
-                    </ViewFlipper>
 
                     <ProgressBar
                         android:id="@+id/weatherProgressBar"
@@ -132,47 +89,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginVertical="16dp" />
-
-                <include
-                    android:id="@+id/sightRecyclerView"
-                    layout="@layout/layout_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp" />
-
-                <include
-                    android:id="@+id/serviceRecyclerView"
-                    layout="@layout/layout_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp" />
-
-                <include
-                    android:id="@+id/restaurantRecyclerView"
-                    layout="@layout/layout_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp" />
-
-                <include
-                    android:id="@+id/shopRecyclerView"
-                    layout="@layout/layout_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="16dp" />
-
-                <include
-                    android:id="@+id/townRecyclerView"
-                    layout="@layout/layout_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"/>
 
             </LinearLayout>
         </ScrollView>
