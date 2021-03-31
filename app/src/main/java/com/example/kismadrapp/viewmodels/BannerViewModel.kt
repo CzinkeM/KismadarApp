@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModel
 import androidx.palette.graphics.Palette
-import com.example.kismadrapp.models.Event
 import com.example.kismadrapp.models.ImageColors
 
 class BannerViewModel() : ViewModel() {

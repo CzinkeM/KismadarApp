@@ -36,7 +36,7 @@ class NatureSight() : Location(null,null) {
             .build()
         natureSights.add(hill)
         val castle = Builder()
-            .name("De La Motte Kastély")
+            .name("Forrás")
             .image(ContextCompat.getDrawable(context,R.drawable.vector_hiking)!!)
             .build()
         natureSights.add(castle)
