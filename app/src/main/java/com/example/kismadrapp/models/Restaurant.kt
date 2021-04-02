@@ -33,6 +33,9 @@ class Restaurant(): Location("",null) {
         restaurants.add(rozmaring)
         return restaurants
     }
+    override fun equalsToLocation(location: Location): Boolean{
+        return this.locationName == location.locationName
+    }
     override fun getCategory(context: Context): String {
         return context.getString(R.string.category_food_drink)
     }

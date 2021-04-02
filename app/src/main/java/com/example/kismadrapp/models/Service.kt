@@ -52,7 +52,9 @@ class Service(): Location("",null) {
             .build()
         return arrayListOf(library,pharmacy,doctor,dentist)
     }
-
+    override fun equalsToLocation(location: Location): Boolean{
+        return this.locationName == location.locationName
+    }
     override fun getCategory(context: Context): String {
         return context.getString(R.string.category_services )
     }

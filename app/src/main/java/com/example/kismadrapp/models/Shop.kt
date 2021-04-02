@@ -35,7 +35,9 @@ class Shop(): Location("",null) {
         shops.add(coop)
         return shops
     }
-
+    override fun equalsToLocation(location: Location): Boolean{
+        return this.locationName == location.locationName
+    }
     override fun getCategory(context: Context): String {
         return context.getString(R.string.category_shops)
     }
