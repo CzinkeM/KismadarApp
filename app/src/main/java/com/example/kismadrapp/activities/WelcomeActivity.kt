@@ -55,16 +55,12 @@ class WelcomeActivity : AppCompatActivity() {
         drawerNavigationView = findViewById(R.id.navView)
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         WeatherTask(this).execute()
-        val bottomNavigationQRCodeButton = findViewById<BottomNavigationItemView>(R.id.bottomNavQr)
         val bottomNavigationOpenDrawerButton = findViewById<BottomNavigationItemView>(R.id.bottomNavSettings)
         val navController = findNavController(R.id.fragment)
         bottomNavigationView.setupWithNavController(navController)
         drawerNavigationView.setupWithNavController(navController)
         drawerNavigationView.setNavigationItemSelectedListener(setMenuItemClickListener())
 
-        bottomNavigationQRCodeButton.setOnClickListener {
-            viewModel.openQrCodeReader(this)
-        }
         bottomNavigationOpenDrawerButton.setOnClickListener {
             this.openDrawer()
         }
@@ -97,23 +93,6 @@ class WelcomeActivity : AppCompatActivity() {
             }
         }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK) {
-            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-            if (result != null) {
-                if (result.contents == null) {
-                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
-                } else {
-                    // TODO: 2021. 03. 01. Custom function to navigate to Model DetailPages
-                    Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
-                }
-            } else {
-                super.onActivityResult(requestCode, resultCode, data)
-            }
-        }
-    }
-
     companion object {
         private class WeatherTask(private val welcomeActivity: WelcomeActivity) : AsyncTask<String, Void, String>(){
             override fun onPreExecute() {

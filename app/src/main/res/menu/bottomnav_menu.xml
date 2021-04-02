@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/bottomNavSettings"
-        android:icon="@drawable/ic_menu"
-        android:title="Setting"/>
+        android:icon="@drawable/ic_info"
+        android:title="Setting" />
 
     <item
         android:id="@+id/welcomePageFragment"
@@ -15,8 +15,4 @@
         android:icon="@drawable/ic_map"
         android:title="Túráim"
         />
-    <item
-        android:id="@+id/bottomNavQr"
-        android:icon="@drawable/ic_qr_code"
-        android:title="Scan QR"/>
 </menu>

@@ -42,10 +42,4 @@ class WelcomeActivityViewModel(application: Application) : AndroidViewModel(appl
             }
         }
     }
-    fun openQrCodeReader(activity: Activity){
-        val scanner = IntentIntegrator(activity)
-        scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES)
-        scanner.setBeepEnabled(false)
-        scanner.initiateScan()
-    }
 }
