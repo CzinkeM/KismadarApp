@@ -9,46 +9,27 @@ import com.example.kismadrapp.R
 import com.example.kismadrapp.databinding.LayoutCategoryBinding
 import com.example.kismadrapp.models.NatureSight
 import com.example.kismadrapp.models.Sight
+import com.example.kismadrapp.models.Town
 import com.example.kismadrapp.utils.adapters.CategoryAdapter
 import com.example.kismadrapp.utils.adapters.CategoryClickListener
 import com.example.kismadrapp.utils.clicklisteners.TextClickListener
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import org.w3c.dom.Text
 
 class WelcomePageViewModel() : ViewModel() {
-    fun setupRecyclerView(context: Context,layoutCategoryBinding: LayoutCategoryBinding, natureSight: NatureSight){
-        layoutCategoryBinding.category = natureSight.getCategory(context)
-        layoutCategoryBinding.categoryClickListener = TextClickListener {
-            Log.i("action","category layout banner clicked")
-            Toast.makeText(context,"Navigate to ${natureSight.getCategory(context)} list", Toast.LENGTH_SHORT).show()
-        }
-        layoutCategoryBinding.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        layoutCategoryBinding.categoryRecyclerView.adapter = CategoryAdapter(
-            CategoryClickListener {
-                Toast.makeText(context, it.locationName, Toast.LENGTH_SHORT).show()
-                Log.i("action","location clicked")
-                //ide kell a sheet megnyitás
-            }, natureSight.getAll(context)
-        )
-    }
-    fun setupRecyclerView(context: Context,layoutCategoryBinding: LayoutCategoryBinding, sight: Sight){
-        layoutCategoryBinding.category = sight.getCategory(context)
-        layoutCategoryBinding.categoryClickListener = TextClickListener {
-            Toast.makeText(context,"Navigate to ${sight.getCategory(context)} list", Toast.LENGTH_SHORT).show()
-        }
-        layoutCategoryBinding.categoryRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        layoutCategoryBinding.categoryRecyclerView.adapter = CategoryAdapter(
-            CategoryClickListener {
-                Toast.makeText(context, it.locationName, Toast.LENGTH_SHORT).show()
-                //ide kell a sheet megnyitás
-            }, sight.getAll(context)
-        )
-    }
-    fun openBottomSheet(context: Context){
+    private fun openBottomSheet(context: Context){
         val bottomSheetDialog = BottomSheetDialog(context)
         bottomSheetDialog.setContentView(R.layout.bottomsheet_naturesight)
         bottomSheetDialog.show()
+    }
+    private fun makeBreakfast(context: Context){
+        Toast.makeText(context,"Clicked",Toast.LENGTH_SHORT).show()
+    }
+    fun itemClickListener(context: Context): CategoryClickListener{
+        return CategoryClickListener { openBottomSheet(context) }
+    }
+    fun textClickListener(context: Context): TextClickListener{
+        return TextClickListener { makeBreakfast(context) }
     }
 
 }

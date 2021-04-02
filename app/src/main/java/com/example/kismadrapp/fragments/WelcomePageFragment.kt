@@ -13,8 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kismadrapp.*
 import com.example.kismadrapp.activities.WelcomeActivity
 import com.example.kismadrapp.databinding.FragmentPageWelcomeBinding
+import com.example.kismadrapp.databinding.LayoutCategoryBinding
 import com.example.kismadrapp.models.NatureSight
+import com.example.kismadrapp.models.RecyclerViewSetter
 import com.example.kismadrapp.models.Sight
+import com.example.kismadrapp.models.Town
 import com.example.kismadrapp.viewmodels.WelcomePageViewModel
 
 class WelcomePageFragment : Fragment() {
@@ -28,14 +31,30 @@ class WelcomePageFragment : Fragment() {
         val viewModel = ViewModelProvider(this).get(WelcomePageViewModel::class.java)
         binding.viewModel = viewModel
 
-        viewModel.setupRecyclerView(context!!,binding.natureRecyclerView, NatureSight())
-        viewModel.setupRecyclerView(context!!,binding.sightRecyclerView, Sight())
-        viewModel.setupRecyclerView(context!!,binding.restaurantRecyclerView, Sight())
-
-
-        binding.materialTextView2.setOnClickListener {
-            viewModel.openBottomSheet(context!!)
-        }
+        RecyclerViewSetter(context!!,binding.natureRecyclerView).natureSight(
+            viewModel.itemClickListener(context!!),
+            viewModel.textClickListener(context!!)
+        )
+        RecyclerViewSetter(context!!,binding.sightRecyclerView).sight(
+            viewModel.itemClickListener(context!!),
+            viewModel.textClickListener(context!!)
+        )
+        RecyclerViewSetter(context!!,binding.restaurantRecyclerView).restaurant(
+            viewModel.itemClickListener(context!!),
+            viewModel.textClickListener(context!!)
+        )
+        RecyclerViewSetter(context!!,binding.shopRecyclerView).shop(
+            viewModel.itemClickListener(context!!),
+            viewModel.textClickListener(context!!)
+        )
+        RecyclerViewSetter(context!!,binding.serviceRecyclerView).service(
+            viewModel.itemClickListener(context!!),
+            viewModel.textClickListener(context!!)
+        )
+        RecyclerViewSetter(context!!,binding.townRecyclerView).town(
+            viewModel.itemClickListener(context!!),
+            viewModel.textClickListener(context!!)
+        )
 
         val activity = activity as WelcomeActivity
         activity.weather.observe(viewLifecycleOwner, Observer {
