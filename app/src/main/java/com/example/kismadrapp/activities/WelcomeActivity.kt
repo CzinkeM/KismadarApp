@@ -94,7 +94,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
     companion object {
-        private class WeatherTask(private val welcomeActivity: WelcomeActivity) : AsyncTask<String, Void, String>(){
+        class WeatherTask(private val welcomeActivity: WelcomeActivity) : AsyncTask<String, Void, String>(){
             override fun onPreExecute() {
                 welcomeActivity._isLoading.value = true
             }

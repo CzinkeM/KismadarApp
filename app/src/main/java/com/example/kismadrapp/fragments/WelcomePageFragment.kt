@@ -55,6 +55,9 @@ class WelcomePageFragment : Fragment() {
             viewModel.itemClickListener(context!!),
             viewModel.textClickListener(context!!)
         )
+        binding.weatherFragment.weatherTempText.setOnClickListener {
+            WelcomeActivity.Companion.WeatherTask(activity as WelcomeActivity).execute()
+        }
 
         val activity = activity as WelcomeActivity
         activity.weather.observe(viewLifecycleOwner, Observer {
